@@ -1,0 +1,3 @@
+import{j as s}from"./jsx-runtime-u17CrQMm.js";import{c as t}from"./utils-CDN07tui.js";import{L as n}from"./loader-circle-CZXYOHXN.js";import"./createLucideIcon-BSah2I-h.js";import"./iframe-ByXrCVSE.js";import"./preload-helper-PPVm8Dsz.js";function e({className:a,...o}){return s.jsx(n,{role:"status","aria-label":"Loading",className:t("size-4 animate-spin",a),...o})}e.__docgenInfo={description:"",methods:[],displayName:"Spinner"};const u={title:"UI/Spinner",component:e,tags:["autodocs"]},r={args:{}};r.parameters={...r.parameters,docs:{...r.parameters?.docs,source:{originalSource:`{
+  args: {}
+}`,...r.parameters?.docs?.source}}};const f=["Default"];export{r as Default,f as __namedExportsOrder,u as default};
