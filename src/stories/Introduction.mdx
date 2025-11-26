@@ -1,8 +1,21 @@
+import { Meta, Story } from "@storybook/addon-docs/blocks";
+import * as ComponentHeroStories from './sticker-sheet.stories.tsx';
+
+<Meta title="Introduction" />
+
 # Prism React Lib
 
 A modern, accessible, and beautiful React component library built with TypeScript and Tailwind CSS.
 
-![Prism React Lib Components](./.storybook/assets/image.png)
+<Story of={ComponentHeroStories.StickerSheetExample} />
+
+## Features
+
+- 🎨 **Modern Design**: Beautifully designed components out of the box.
+- 🌙 **Dark Mode**: Built-in dark mode support using standard CSS variables.
+- ♿ **Accessible**: Built on top of Radix UI primitives for robustness and accessibility.
+- 🔧 **TypeScript**: Fully typed for excellent developer experience.
+- ⚡ **Vite & Tailwind**: Optimized for performance.
 
 ## Installation
 
@@ -49,14 +62,6 @@ function App() {
 }
 ```
 
-## Features
-
-- 🎨 **Modern Design**: Beautifully designed components out of the box.
-- 🌙 **Dark Mode**: Built-in dark mode support using standard CSS variables.
-- ♿ **Accessible**: Built on top of Radix UI primitives for robustness and accessibility.
-- 🔧 **TypeScript**: Fully typed for excellent developer experience.
-- ⚡ **Vite & Tailwind**: Optimized for performance.
-
 ## Components
 
 This library includes a comprehensive set of UI components:
@@ -84,6 +89,6 @@ The library uses CSS variables (oklch color space) for theming. You can customiz
 }
 ```
 
-## License
+---
 
-ISC
+*Note: This library is currently in development (v0.0.2).*
