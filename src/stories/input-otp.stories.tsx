@@ -24,8 +24,8 @@ export const Default: Story = {
   args: {
     maxLength: 6,
   },
-  render: (args) => (
-    <InputOTP {...args}>
+  render: ({ render, ...args }: any) => (
+    <InputOTP {...args} maxLength={6}>
       <InputOTPGroup>
         <InputOTPSlot index={0} />
         <InputOTPSlot index={1} />

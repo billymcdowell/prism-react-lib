@@ -17,11 +17,11 @@ export const Default: Story = {
 
     return (
       <Calendar
+        {...args}
         mode="single"
         selected={date}
         onSelect={setDate}
         className="rounded-md border"
-        {...args}
       />
     );
   },

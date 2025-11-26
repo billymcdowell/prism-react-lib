@@ -6,7 +6,6 @@ import {
   ItemMedia,
   ItemTitle,
   ItemActions,
-  ItemHeader,
 } from '@/components/ui/item';
 import { Button } from '@/components/ui/button';
 import { ChevronRight, LayoutGrid } from 'lucide-react';

@@ -32,7 +32,7 @@ const FormSchema = z.object({
 });
 
 export const Default: Story = {
-  render: (args) => {
+  render: () => {
     const form = useForm<z.infer<typeof FormSchema>>({
       resolver: zodResolver(FormSchema),
       defaultValues: {

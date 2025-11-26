@@ -17,7 +17,7 @@ export const Default: Story = {
 };
 
 export const Group: Story = {
-  render: (args) => (
+  render: () => (
     <KbdGroup>
         <Kbd>⌘</Kbd>
         <Kbd>K</Kbd>

@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { ComponentProps } from 'react';
 import {
   Sheet,
   SheetClose,
@@ -13,7 +14,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 
-const meta: Meta<typeof Sheet> = {
+const meta: Meta<ComponentProps<typeof Sheet> & { side: 'top' | 'right' | 'bottom' | 'left' }> = {
   title: 'UI/Sheet',
   component: Sheet,
   tags: ['autodocs'],
@@ -29,12 +30,12 @@ export default meta;
 type Story = StoryObj<typeof Sheet>;
 
 export const Default: Story = {
-  render: (args) => (
+  render: ({ side, ...args }: any) => (
     <Sheet {...args}>
       <SheetTrigger asChild>
         <Button variant="outline">Open</Button>
       </SheetTrigger>
-      <SheetContent side={args.side}>
+      <SheetContent side={side}>
         <SheetHeader>
           <SheetTitle>Edit profile</SheetTitle>
           <SheetDescription>

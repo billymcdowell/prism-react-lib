@@ -40,7 +40,7 @@ const chartConfig = {
 
 export const Default: Story = {
   render: (args) => (
-    <ChartContainer config={chartConfig} className="min-h-[200px] w-full" {...args}>
+    <ChartContainer {...args} config={chartConfig} className="min-h-[200px] w-full">
       <BarChart accessibilityLayer data={chartData}>
         <CartesianGrid vertical={false} />
         <XAxis

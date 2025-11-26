@@ -5,7 +5,7 @@ import {
   ButtonGroupText,
 } from '@/components/ui/button-group';
 import { Button } from '@/components/ui/button';
-import { ChevronDown, MoreHorizontal } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 const meta: Meta<typeof ButtonGroup> = {
   title: 'UI/ButtonGroup',

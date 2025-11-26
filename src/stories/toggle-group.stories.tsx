@@ -22,8 +22,8 @@ export default meta;
 type Story = StoryObj<typeof ToggleGroup>;
 
 export const Default: Story = {
-  render: (args) => (
-    <ToggleGroup type="multiple" {...args}>
+  render: (args: any) => (
+    <ToggleGroup {...args} type="multiple">
       <ToggleGroupItem value="bold" aria-label="Toggle bold">
         <Bold className="h-4 w-4" />
       </ToggleGroupItem>
