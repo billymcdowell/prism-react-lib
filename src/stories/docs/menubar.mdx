@@ -1,0 +1,69 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../menubar.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Menubar
+
+<SectionHeader
+  title="Component Overview"
+  description="A visually persistent menu common in desktop applications that provides quick access to a consistent set of commands."
+/>
+
+Simulates a desktop application menubar (File, Edit, View).
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+![Anatomy Diagram Placeholder: Annotated diagram showing: 1. Menubar (Root), 2. Menu, 3. Trigger, 4. Content, 5. Items]
+
+1.  **Menubar (Root)**: The horizontal bar.
+2.  **MenubarMenu**: Wrapper for a single menu dropdown.
+3.  **MenubarTrigger**: The button on the bar (e.g., "File").
+4.  **MenubarContent**: The dropdown list.
+5.  **MenubarItem**: Action items.
+6.  **MenubarSub**: Submenus.
+
+## Behavior
+
+### Interaction patterns
+-   **Click**: Opens the menu.
+-   **Hover**: If one menu is open, hovering others opens them (roving).
+-   **Keyboard**: Arrow keys navigate left/right between menus and up/down within menus.
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Menubar component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Desktop Apps**: Use for complex web apps that mimic desktop software (editors, IDEs).
+    - **Shortcuts**: Display keyboard shortcuts next to items.
+  </Dos>
+</Guidelines>
+
+## Accessibility
+
+### Screen reader support
+-   **Role**: `menubar`.
+-   **Navigation**: Roving tabindex is managed automatically.
+
+## Implementation Notes
+
+### Technical considerations
+-   Built using `@radix-ui/react-menubar`.
+
+### Code reference
+-   **Component**: `src/components/ui/menubar.tsx`
+-   **Storybook**: `src/stories/menubar.stories.tsx`
+-   **Version**: 1.0.0
+
+## Related Components
+
+<FeatureList>
+-   **NavigationMenu**: For website navigation (less dense).
+</FeatureList>

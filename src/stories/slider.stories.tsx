@@ -5,7 +5,6 @@ import { cn } from '@/lib/utils';
 const meta: Meta<typeof Slider> = {
   title: 'UI/Slider',
   component: Slider,
-  tags: ['autodocs'],
   argTypes: {
     min: { control: 'number' },
     max: { control: 'number' },

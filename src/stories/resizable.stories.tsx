@@ -8,7 +8,6 @@ import {
 const meta: Meta<typeof ResizablePanelGroup> = {
   title: 'UI/Resizable',
   component: ResizablePanelGroup,
-  tags: ['autodocs'],
 };
 
 export default meta;

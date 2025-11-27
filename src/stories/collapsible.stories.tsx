@@ -11,7 +11,6 @@ import React from 'react';
 const meta: Meta<typeof Collapsible> = {
   title: 'UI/Collapsible',
   component: Collapsible,
-  tags: ['autodocs'],
 };
 
 export default meta;

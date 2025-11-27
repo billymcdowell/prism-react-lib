@@ -4,7 +4,6 @@ import { Spinner } from '@/components/ui/spinner';
 const meta: Meta<typeof Spinner> = {
   title: 'UI/Spinner',
   component: Spinner,
-  tags: ['autodocs'],
 };
 
 export default meta;

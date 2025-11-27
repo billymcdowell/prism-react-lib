@@ -1,0 +1,59 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../sidebar.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Sidebar
+
+<SectionHeader
+  title="Component Overview"
+  description="A composable, themeable sidebar component."
+/>
+
+A comprehensive sidebar solution for application layouts.
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+![Anatomy Diagram Placeholder: Annotated diagram showing: 1. Provider, 2. Sidebar, 3. Header, 4. Content, 5. Footer, 6. Rail, 7. Trigger]
+
+1.  **SidebarProvider**: Context provider for state (expanded/collapsed).
+2.  **Sidebar (Root)**: The sidebar container.
+3.  **SidebarHeader**: Top section (Logo, search).
+4.  **SidebarContent**: Scrollable middle section (Menu).
+5.  **SidebarFooter**: Bottom section (User profile).
+6.  **SidebarRail**: Hoverable rail for resizing/expanding.
+7.  **SidebarTrigger**: Toggle button.
+
+## Behavior
+
+### Interaction patterns
+-   **Collapse**: Can collapse to icon-only mode.
+-   **Mobile**: Turns into a Sheet (slide-in) on mobile.
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Sidebar component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **App Shell**: Use as the primary navigation for complex apps.
+    - **Groups**: Group related links.
+  </Dos>
+</Guidelines>
+
+## Implementation Notes
+
+### Technical considerations
+-   Uses CSS variables for width management.
+-   Cookie-based state persistence (`sidebar_state`) to prevent hydration mismatch.
+-   Composed of many sub-components (`SidebarMenu`, `SidebarGroup`, etc.).
+
+### Code reference
+-   **Component**: `src/components/ui/sidebar.tsx`
+-   **Storybook**: `src/stories/sidebar.stories.tsx`
+-   **Version**: 1.0.0

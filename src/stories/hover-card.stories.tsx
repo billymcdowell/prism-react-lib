@@ -11,7 +11,6 @@ import { CalendarDays } from 'lucide-react';
 const meta: Meta<typeof HoverCard> = {
   title: 'UI/HoverCard',
   component: HoverCard,
-  tags: ['autodocs'],
 };
 
 export default meta;

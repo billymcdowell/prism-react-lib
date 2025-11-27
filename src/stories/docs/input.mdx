@@ -1,0 +1,51 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../input.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Input
+
+<SectionHeader
+  title="Component Overview"
+  description="Displays a form input field or a component that looks like an input field."
+/>
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+1.  **Input**: The HTML `input` element styled with Tailwind.
+
+## States
+-   **Default**: Placeholder text.
+-   **Focus**: Ring outline.
+-   **Disabled**: Reduced opacity.
+-   **File**: Special styling for file inputs.
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Input component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Short Text**: Use for single-line text.
+    - **Types**: Use appropriate types (`email`, `password`, `number`).
+  </Dos>
+</Guidelines>
+
+## Implementation Notes
+
+### Code reference
+-   **Component**: `src/components/ui/input.tsx`
+-   **Storybook**: `src/stories/input.stories.tsx`
+-   **Version**: 1.0.0
+
+## Related Components
+
+<FeatureList>
+-   **Textarea**: For multi-line text.
+-   **Form**: For validation.
+</FeatureList>

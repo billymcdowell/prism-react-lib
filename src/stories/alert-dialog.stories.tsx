@@ -15,7 +15,6 @@ import { Button } from '@/components/ui/button';
 const meta: Meta<typeof AlertDialog> = {
   title: 'UI/AlertDialog',
   component: AlertDialog,
-  tags: ['autodocs'],
 };
 
 export default meta;

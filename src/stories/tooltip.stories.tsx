@@ -10,7 +10,6 @@ import { Button } from '@/components/ui/button';
 const meta: Meta<typeof Tooltip> = {
   title: 'UI/Tooltip',
   component: Tooltip,
-  tags: ['autodocs'],
 };
 
 export default meta;

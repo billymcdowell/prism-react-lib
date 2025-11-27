@@ -4,7 +4,6 @@ import { Badge } from '@/components/ui/badge';
 const meta: Meta<typeof Badge> = {
   title: 'UI/Badge',
   component: Badge,
-  tags: ['autodocs'],
   argTypes: {
     variant: {
       control: 'select',

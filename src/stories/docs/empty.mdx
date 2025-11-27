@@ -1,0 +1,60 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../empty.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Empty State
+
+<SectionHeader
+  title="Component Overview"
+  description="A placeholder component for empty states."
+/>
+
+Displayed when a list, table, or search result has no content.
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+![Anatomy Diagram Placeholder: Annotated diagram showing: 1. Icon/Illustration, 2. Title, 3. Description, 4. Action]
+
+1.  **Empty (Root)**: Container (often centered, dashed border).
+2.  **EmptyMedia**: Icon or illustration area.
+3.  **EmptyTitle**: "No items found".
+4.  **EmptyDescription**: Explanation or instructions.
+5.  **EmptyContent**: Call to action button.
+
+## Variants
+-   **Default**: Simple text and icon.
+-   **Dashed**: With a dashed border area (good for drop zones).
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Empty component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Helpful**: Explain *why* it's empty and *how* to populate it.
+    - **Actionable**: Provide a button to create the first item.
+  </Dos>
+  <Donts>
+    - Leave a blank whitespace.
+    - Use generic "No Data" without context.
+  </Donts>
+</Guidelines>
+
+## Design Specifications
+
+### Typography
+-   **Title**: Medium weight, large text.
+-   **Description**: Muted text.
+
+## Implementation Notes
+
+### Code reference
+-   **Component**: `src/components/ui/empty.tsx`
+-   **Storybook**: `src/stories/empty.stories.tsx`
+-   **Version**: 1.0.0

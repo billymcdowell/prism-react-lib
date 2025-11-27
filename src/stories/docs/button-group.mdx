@@ -1,0 +1,96 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../button-group.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Button Group
+
+<SectionHeader
+  title="Component Overview"
+  description="Groups multiple buttons together."
+/>
+
+Allows multiple buttons to be combined into a single visual unit. This is useful for toolbars, toggle buttons, or related actions.
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+![Anatomy Diagram Placeholder: Annotated diagram showing: 1. Group Container, 2. Buttons, 3. Separators]
+
+1.  **ButtonGroup**: The container element that handles the rounded corners and grouping logic.
+2.  **Buttons**: Standard Button components inside the group.
+3.  **ButtonGroupSeparator**: A vertical divider between buttons to visually separate them.
+4.  **ButtonGroupText**: Text label integrated into the group (e.g., a prefix).
+
+## Variants
+-   **Horizontal**: Buttons are arranged side-by-side (Default).
+    -   `orientation="horizontal"`
+-   **Vertical**: Buttons are stacked vertically.
+    -   `orientation="vertical"`
+
+## States
+-   **Focus**: Focus states are managed so that the focus ring appears correctly above adjacent buttons (`z-10`).
+-   **Hover**: Standard button hover effects apply.
+
+## Behavior
+
+### Interaction patterns
+-   **Single Selection**: Can be used for toggle groups (radio behavior).
+-   **Multiple Selection**: Can be used for multi-select toggles (checkbox behavior).
+-   **Action Group**: Simply groups related actions (e.g., "Save" and "Save as...").
+
+### Responsive behavior
+-   Button groups typically wrap or scroll if they exceed the container width, or switch to vertical on mobile if designed to do so.
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Button Group component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Toolbars**: Use for editor toolbars (Bold, Italic, Underline).
+    - **Related Actions**: Group actions that affect the same object.
+    - **View Switchers**: Use for switching between views (List vs. Grid).
+  </Dos>
+  <Donts>
+    - Group unrelated actions.
+    - Mix different button sizes within the same group.
+  </Donts>
+</Guidelines>
+
+## Accessibility
+
+### Screen reader support
+-   **Role**: `group`.
+-   **Label**: `aria-label` should be provided to the group to describe its purpose.
+
+### Keyboard navigation
+-   **Tab**: Moves focus between buttons (unless it's a roving tabindex toolbar).
+
+## Design Specifications
+
+### Spacing
+-   **Borders**: Internal borders are merged or handled to prevent double borders.
+-   **Radius**: Only the outer corners of the first and last buttons are rounded.
+
+## Implementation Notes
+
+### Technical considerations
+-   Uses CSS combinators (`first-child`, `last-child`) to handle border radius manipulation.
+-   `z-index` manipulation is critical for focus rings to show up correctly.
+
+### Code reference
+-   **Component**: `src/components/ui/button-group.tsx`
+-   **Storybook**: `src/stories/button-group.stories.tsx`
+-   **Version**: 1.0.0
+
+## Related Components
+
+<FeatureList>
+-   **Button**: The individual items.
+-   **ToggleGroup**: A specialized version for selection states (Radix Primitive).
+</FeatureList>

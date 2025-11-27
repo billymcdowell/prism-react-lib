@@ -5,7 +5,6 @@ import { Label } from '@/components/ui/label';
 const meta: Meta<typeof Switch> = {
   title: 'UI/Switch',
   component: Switch,
-  tags: ['autodocs'],
   argTypes: {
     disabled: {
       control: 'boolean',

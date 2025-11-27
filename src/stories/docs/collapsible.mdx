@@ -1,0 +1,71 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../collapsible.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Collapsible
+
+<SectionHeader
+  title="Component Overview"
+  description="An interactive component which expands/collapses a panel."
+/>
+
+Used to hide complex or secondary content while keeping it accessible.
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+![Anatomy Diagram Placeholder: Annotated diagram showing: 1. Root, 2. Trigger, 3. Content]
+
+1.  **Collapsible (Root)**: State manager.
+2.  **CollapsibleTrigger**: The button that toggles the state.
+3.  **CollapsibleContent**: The panel that expands/collapses.
+
+## States
+-   **Open**: Content is visible.
+-   **Closed**: Content is hidden (height: 0).
+
+## Behavior
+
+### Interaction patterns
+-   **Click**: Toggles the open/closed state.
+
+### Animation
+-   Typically animates the `height` or `grid-template-rows` from 0 to auto.
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Collapsible component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Details**: Use to hide details that are not critical for the main task.
+    - **Clean Layouts**: Use to keep layouts clean by hiding advanced options.
+  </Dos>
+</Guidelines>
+
+## Accessibility
+
+### Screen reader support
+-   **Trigger**: `aria-expanded` indicates state. `aria-controls` points to content.
+-   **Content**: `region` role (optional but good for large sections).
+
+## Implementation Notes
+
+### Technical considerations
+-   Built using `@radix-ui/react-collapsible`.
+
+### Code reference
+-   **Component**: `src/components/ui/collapsible.tsx`
+-   **Storybook**: `src/stories/collapsible.stories.tsx`
+-   **Version**: 1.0.0
+
+## Related Components
+
+<FeatureList>
+-   **Accordion**: A set of connected collapsibles.
+</FeatureList>

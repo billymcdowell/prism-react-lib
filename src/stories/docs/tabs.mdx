@@ -1,0 +1,105 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as TabsStories from '../tabs.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={TabsStories} />
+
+# Tabs
+
+<SectionHeader
+  title="Component Overview"
+  description="A set of layered sections of content—known as tab panels—that are displayed one at a time."
+/>
+
+Tabs allow users to organize and navigate between multiple panels of related content within the same view, saving space and reducing clutter.
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+
+1.  **Tabs (Root)**: The top-level container that manages state.
+2.  **TabsList**: The container for the tab triggers.
+3.  **TabsTrigger**: The interactive element (button) that activates a specific content panel.
+4.  **TabsContent**: The content panel associated with a trigger.
+
+## States
+-   **Inactive**: The tab is visible but not selected.
+-   **Active**: The tab is selected, and its associated content is visible. The active tab usually has a distinct background color or underline.
+-   **Focus**: The tab receives a focus ring when navigated to via keyboard.
+-   **Disabled**: The tab cannot be activated.
+
+## Behavior
+
+### Interaction patterns
+-   **Click**: Clicking a tab trigger activates it and displays the corresponding content.
+-   **Keyboard**:
+    -   **Tab**: Moves focus into the tab list.
+    -   **Arrow Keys**: Navigate between tabs within the list (automatic activation or manual depending on configuration, usually manual/enter in web).
+
+### Responsive behavior
+-   **TabsList**: Typically horizontally scrolling or wrapping on smaller screens if there are many tabs, or stacked vertically. In this implementation, it's a flex container that fits its content.
+-   **TabsContent**: Expands to fill the available width.
+
+## Usage Guidelines
+
+<Guidelines>
+  <Dos>
+    - Use when users need to switch between views within the same context.
+    - Use for organizing related content into distinct sections (e.g., Account, Password, Notifications).
+    - Keep tab labels short and descriptive (1-2 words).
+  </Dos>
+  <Donts>
+    - Use tabs for sequential steps (use a Stepper or Wizard instead).
+    - Use tabs for comparing content (content should be visible side-by-side).
+    - Overload a single view with too many tabs (consider a navigation menu or sidebar).
+  </Donts>
+</Guidelines>
+
+## Accessibility
+
+### Keyboard navigation
+-   **Tab**: Moves focus into the tab list and then to the active tab panel.
+-   **Arrow Right/Left**: Moves focus between tabs.
+-   **Home/End**: Moves focus to the first/last tab.
+-   **Space/Enter**: Activates the focused tab (if not automatically activated).
+
+### Screen reader support
+-   **Roles**:
+    -   `role="tablist"` wrapper.
+    -   `role="tab"` for triggers.
+    -   `role="tabpanel"` for content areas.
+-   **ARIA Attributes**:
+    -   `aria-selected="true"` on the active tab.
+    -   `aria-controls` links the tab to its panel.
+    -   `aria-labelledby` links the panel to its tab.
+
+## Design Specifications
+
+### Typography
+-   **Labels**: `text-sm`, `font-medium`.
+
+### Colors
+-   **Background**: `bg-muted` for the list, `bg-background` for the active tab.
+-   **Text**: `text-muted-foreground` for inactive, `text-foreground` for active.
+-   **Active State**: Shadow and color change to indicate elevation/selection.
+
+## Implementation Notes
+
+### Technical considerations
+-   Built using `@radix-ui/react-tabs`.
+-   Supports controlled and uncontrolled modes.
+
+### Code reference
+-   **Component**: `src/components/ui/tabs.tsx`
+-   **Storybook**: `src/stories/tabs.stories.tsx`
+-   **Dependencies**: `@radix-ui/react-tabs`
+
+## Related Components
+
+<FeatureList>
+-   **Accordion**: For collapsing multiple sections vertically.
+-   **NavigationMenu**: For site-wide navigation.
+</FeatureList>
+

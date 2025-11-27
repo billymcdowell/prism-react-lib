@@ -5,7 +5,6 @@ import { Bold, Italic, Underline } from 'lucide-react';
 const meta: Meta<typeof ToggleGroup> = {
   title: 'UI/ToggleGroup',
   component: ToggleGroup,
-  tags: ['autodocs'],
   argTypes: {
     type: {
       control: 'select',

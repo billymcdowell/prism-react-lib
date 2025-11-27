@@ -17,7 +17,6 @@ import { Label } from '@/components/ui/label';
 const meta: Meta<ComponentProps<typeof Sheet> & { side: 'top' | 'right' | 'bottom' | 'left' }> = {
   title: 'UI/Sheet',
   component: Sheet,
-  tags: ['autodocs'],
   argTypes: {
     side: {
       control: 'select',

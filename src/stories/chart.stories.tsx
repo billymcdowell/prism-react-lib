@@ -12,7 +12,6 @@ import {
 const meta: Meta<typeof ChartContainer> = {
   title: 'UI/Chart',
   component: ChartContainer,
-  tags: ['autodocs'],
 };
 
 export default meta;

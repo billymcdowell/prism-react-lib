@@ -1,0 +1,50 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../item.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Item
+
+<SectionHeader
+  title="Component Overview"
+  description="A flexible component for displaying items with an image, title, description, and actions."
+/>
+
+Generic list item component often used in sidebars, lists, or menus.
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+![Anatomy Diagram Placeholder: Annotated diagram showing: 1. Media, 2. Content (Title/Description), 3. Actions]
+
+1.  **Item (Root)**: Container.
+2.  **ItemMedia**: Icon or image.
+3.  **ItemContent**: Wrapper for text.
+4.  **ItemTitle**: Primary text.
+5.  **ItemDescription**: Secondary text.
+6.  **ItemActions**: End-aligned buttons.
+
+## Variants
+-   **Default**: Transparent background.
+-   **Outline**: Bordered.
+-   **Muted**: Slight background color.
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Item component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Lists**: Use for homogeneous lists of objects.
+    - **Menus**: Use for complex menu items with descriptions.
+  </Dos>
+</Guidelines>
+
+### Code reference
+-   **Component**: `src/components/ui/item.tsx`
+-   **Storybook**: `src/stories/item.stories.tsx`
+-   **Version**: 1.0.0

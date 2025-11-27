@@ -15,7 +15,6 @@ import { Switch } from '@/components/ui/switch';
 const meta: Meta<typeof Field> = {
   title: 'UI/Field',
   component: Field,
-  tags: ['autodocs'],
 };
 
 export default meta;

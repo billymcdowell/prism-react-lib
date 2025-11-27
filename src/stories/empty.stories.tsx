@@ -13,7 +13,6 @@ import { PackageOpen } from 'lucide-react';
 const meta: Meta<typeof Empty> = {
   title: 'UI/Empty',
   component: Empty,
-  tags: ['autodocs'],
 };
 
 export default meta;

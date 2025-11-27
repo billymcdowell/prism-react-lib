@@ -1,0 +1,58 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../switch.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Switch
+
+<SectionHeader
+  title="Component Overview"
+  description="A control that allows the user to toggle between checked and not checked."
+/>
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+![Anatomy Diagram Placeholder: Annotated diagram showing: 1. Root (Track), 2. Thumb]
+
+1.  **Switch (Root)**: The track.
+2.  **Thumb**: The moving circle.
+
+## Behavior
+
+### Interaction patterns
+-   **Click**: Toggles state.
+-   **Space**: Toggles state when focused.
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Switch component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Instant Action**: Use for settings that take effect immediately (e.g., "Airplane Mode", "Dark Mode").
+  </Dos>
+  <Donts>
+    - **Forms**: Use for "Agree to Terms" (use Checkbox).
+  </Donts>
+</Guidelines>
+
+## Accessibility
+
+### Screen reader support
+-   **Role**: `switch`.
+-   **State**: `aria-checked`.
+
+## Implementation Notes
+
+### Technical considerations
+-   Built using `@radix-ui/react-switch`.
+
+### Code reference
+-   **Component**: `src/components/ui/switch.tsx`
+-   **Storybook**: `src/stories/switch.stories.tsx`
+-   **Version**: 1.0.0

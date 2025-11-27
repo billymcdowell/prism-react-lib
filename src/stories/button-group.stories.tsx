@@ -10,7 +10,6 @@ import { ChevronDown } from 'lucide-react';
 const meta: Meta<typeof ButtonGroup> = {
   title: 'UI/ButtonGroup',
   component: ButtonGroup,
-  tags: ['autodocs'],
   argTypes: {
     orientation: {
       control: 'select',

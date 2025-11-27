@@ -1,0 +1,122 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../alert-dialog.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Alert Dialog
+
+<SectionHeader
+  title="Component Overview"
+  description="A modal dialog that interrupts the user with important content and expects a response."
+/>
+
+It is used to alert the user to a situation that requires acknowledgement, or to ask the user to confirm a specific action, especially one that is destructive or irreversible.
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+![Anatomy Diagram Placeholder: Annotated diagram showing: 1. Overlay, 2. Content, 3. Header (Title/Description), 4. Footer (Cancel/Action)]
+
+1.  **AlertDialog (Root)**: The wrapper element that manages the open state.
+2.  **AlertDialogTrigger**: The element that opens the dialog.
+3.  **AlertDialogContent**: The component that contains the dialog content and overlay.
+4.  **AlertDialogHeader**: Header section containing title and description.
+5.  **AlertDialogTitle**: The title of the dialog.
+6.  **AlertDialogDescription**: The description or warning text.
+7.  **AlertDialogFooter**: Footer section containing action buttons.
+8.  **AlertDialogCancel**: The button to cancel the action and close the dialog.
+9.  **AlertDialogAction**: The button to confirm the action.
+
+## Variants
+The Alert Dialog is typically a single variant component, but its content and actions can be customized.
+
+-   **Default**: Standard confirmation dialog with Cancel and Continue options.
+
+## States
+-   **Closed**: Hidden from view.
+-   **Open**: Overlay covers the screen, dialog is centered.
+-   **Focus**: Focus is trapped within the dialog.
+
+## Behavior
+
+### Interaction patterns
+-   **Click/Tap**: Clicking the trigger opens the dialog. Clicking action or cancel buttons closes it.
+-   **Overlay Click**: Clicking the overlay generally does not close an Alert Dialog (unlike a standard Dialog) to force a choice, but this can be configured.
+-   **Escape Key**: Pressing Escape closes the dialog.
+
+### Animation/Transitions
+-   **Open**: Fade in overlay, zoom/fade in content.
+-   **Close**: Fade out overlay, zoom/fade out content.
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Alert Dialog component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Destructive Actions**: Use for confirming deletions or irreversible changes.
+    - **Important Warnings**: Use when you need to interrupt the user's flow for a critical decision.
+    - **Short Content**: Keep titles and descriptions concise.
+  </Dos>
+  <Donts>
+    - Use for routine information or non-critical confirmations.
+    - Use for complex forms or data entry (use a standard Dialog instead).
+    - Overuse, as it interrupts the user experience.
+  </Donts>
+</Guidelines>
+
+## Accessibility
+
+### Keyboard navigation
+-   **Tab**: Cycles focus through interactive elements within the dialog.
+-   **Escape**: Closes the dialog.
+-   **Enter**: Triggers the focused action.
+
+### Screen reader support
+-   **Role**: `alertdialog`.
+-   **ARIA**: `aria-labelledby` and `aria-describedby` are automatically handled to link the title and description to the dialog.
+-   **Focus Management**: Focus is automatically trapped within the dialog when open and returned to the trigger when closed.
+
+## Design Specifications
+
+### Typography
+-   **Title**: `text-lg`, `font-semibold`.
+-   **Description**: `text-sm`, `text-muted-foreground`.
+
+### Spacing
+-   **Padding**: Standard padding tokens (e.g., `p-6`).
+-   **Gap**: `gap-4` between elements.
+
+<SectionHeader
+  title="Content Guidelines"
+  description="Writing effective content for alert dialogs."
+/>
+
+### Writing style
+-   **Title**: Ask a clear question or state the action (e.g., "Delete Account?").
+-   **Description**: Explain the consequences clearly (e.g., "This action cannot be undone.").
+-   **Buttons**: Use clear action verbs (e.g., "Delete", "Cancel").
+
+## Implementation Notes
+
+### Technical considerations
+-   Built using `@radix-ui/react-alert-dialog`.
+-   Requires `tailwindcss` and `tw-animate-css`.
+
+### Code reference
+-   **Component**: `src/components/ui/alert-dialog.tsx`
+-   **Storybook**: `src/stories/alert-dialog.stories.tsx`
+-   **Version**: 1.0.0
+
+## Related Components
+
+<FeatureList>
+-   **Dialog**: For non-alert modal interactions (forms, details).
+-   **Toast**: For non-interruptive notifications.
+-   **Alert**: For inline warnings or information.
+</FeatureList>
+

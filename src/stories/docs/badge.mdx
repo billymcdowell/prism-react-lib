@@ -1,0 +1,125 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../badge.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Badge
+
+<SectionHeader
+  title="Component Overview"
+  description="Displays a badge or a component that looks like a badge."
+/>
+
+Badges are small status descriptors for UI elements. They are typically used to communicate a status, a count, or a category.
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+![Anatomy Diagram Placeholder: Annotated diagram showing: 1. Container (Badge), 2. Label (Text)]
+
+1.  **Badge (Root)**: The container element styling the background and border.
+2.  **Label**: The text content.
+
+## Variants
+The Badge comes in several styles to communicate different statuses:
+
+-   **Default**: Primary background color. Used for the main status or high-priority items.
+    -   `variant="default"`
+-   **Secondary**: Muted background color. Used for neutral or low-priority items.
+    -   `variant="secondary"`
+-   **Destructive**: Red background. Used for errors, critical warnings, or removal.
+    -   `variant="destructive"`
+-   **Outline**: Bordered transparent background. Used for subtle indicators.
+    -   `variant="outline"`
+
+## States
+-   **Default**: The standard readable state.
+-   **Hover**: Badges have a subtle hover effect (opacity change or background darken) if they are interactive or to add depth.
+
+## Behavior
+
+### Interaction patterns
+-   **Static**: Badges are primarily informational and static.
+-   **Link**: Can be used as a link if wrapped in an anchor tag (using `asChild` if supported, or just wrapping).
+
+### Responsive behavior
+-   **Wrapping**: Text should not wrap; badges should expand horizontally.
+-   **Size**: Badges generally remain the same size across breakpoints.
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Badge component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Status**: Use to indicate status (e.g., "New", "Pending", "Paid").
+    - **Counts**: Use to display counts (e.g., number of new messages).
+    - **Tags**: Use for categories or tags.
+    - **Short Text**: Keep text short (1-2 words).
+  </Dos>
+  <Donts>
+    - Use for interactive elements (use Button instead).
+    - Use for long sentences (keep text short).
+    - Overuse in a single view (can cause visual clutter).
+  </Donts>
+</Guidelines>
+
+## Accessibility
+
+### Screen reader support
+-   **Role**: Standard `span` or `div` unless interactive.
+-   **Labeling**: Ensure the badge text is descriptive. If the badge is a status indicator, consider if additional context is needed for screen readers.
+
+### WCAG compliance
+-   **Contrast**: All variants meet AA contrast ratios.
+    -   Default: `text-primary-foreground` on `bg-primary`.
+    -   Destructive: `text-destructive-foreground` on `bg-destructive`.
+
+## Design Specifications
+
+### Typography
+-   **Size**: `text-xs` (0.75rem).
+-   **Weight**: `font-semibold` (600).
+-   **Case**: Often Sentence case or Title Case, depending on usage.
+
+### Spacing
+-   **Padding**: `px-2.5` (horizontal), `py-0.5` (vertical).
+-   **Border Radius**: `rounded-full` (Pill shape).
+
+### Colors
+-   **Default**: `bg-primary`.
+-   **Secondary**: `bg-secondary`.
+-   **Destructive**: `bg-destructive`.
+-   **Outline**: `border-input` (or current border color).
+
+<SectionHeader
+  title="Content Guidelines"
+  description="Writing effective content for badges."
+/>
+
+### Writing style
+-   **Concise**: Use single words where possible.
+-   **Consistent**: Use consistent terminology for statuses.
+
+## Implementation Notes
+
+### Technical considerations
+-   Built using standard HTML elements.
+-   Uses `class-variance-authority` (cva) for variant management.
+
+### Code reference
+-   **Component**: `src/components/ui/badge.tsx`
+-   **Storybook**: `src/stories/badge.stories.tsx`
+-   **Version**: 1.0.0
+
+## Related Components
+
+<FeatureList>
+-   **Button**: For interactive elements.
+-   **Label**: For form field labels.
+-   **Tooltip**: To explain a badge's meaning if unclear.
+</FeatureList>

@@ -4,7 +4,6 @@ import { AspectRatio } from '@/components/ui/aspect-ratio';
 const meta: Meta<typeof AspectRatio> = {
   title: 'UI/AspectRatio',
   component: AspectRatio,
-  tags: ['autodocs'],
   argTypes: {
     ratio: {
       control: 'number',

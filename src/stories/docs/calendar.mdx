@@ -1,0 +1,103 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../calendar.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Calendar
+
+<SectionHeader
+  title="Component Overview"
+  description="A date field component that allows users to enter and edit date."
+/>
+
+A calendar component for selecting dates, supporting single date, date ranges, and multiple dates.
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+![Anatomy Diagram Placeholder: Annotated diagram showing: 1. Month Navigation, 2. Month Label, 3. Weekdays Header, 4. Days Grid]
+
+1.  **Calendar (Root)**: The wrapper element.
+2.  **Navigation**: Previous/Next buttons to change months.
+3.  **Month Label**: Displays the current month and year.
+4.  **Weekdays**: Row showing day names (Mo, Tu, We, etc.).
+5.  **Days**: Grid of interactive day buttons.
+
+## Variants
+-   **Single Mode**: Select a single date.
+-   **Range Mode**: Select a start and end date.
+-   **Multiple Mode**: Select multiple individual dates.
+
+## States
+-   **Default**: Standard day button.
+-   **Selected**: High contrast background (`bg-primary`).
+-   **Today**: Highlighted text or background (`bg-accent`).
+-   **Outside**: Days belonging to the previous/next month (muted).
+-   **Disabled**: Non-selectable dates (opacity reduced).
+
+## Behavior
+
+### Interaction patterns
+-   **Click**: Selects a date.
+-   **Navigation**: Arrows navigate between months.
+
+### Responsive behavior
+-   The calendar is fixed width by default but can be styled to fit containers.
+-   For mobile, it's often better to use a native date picker or a modal.
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Calendar component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Date Input**: Use for selecting specific dates (scheduling, birthdays).
+    - **Range Picker**: Use for date ranges (booking, reports).
+  </Dos>
+  <Donts>
+    - Use for entering known dates far in the past (like birth year) without year selection dropdowns (it's tedious to click back).
+  </Donts>
+</Guidelines>
+
+## Accessibility
+
+### Keyboard navigation
+-   **Arrow Keys**: Navigate between days.
+-   **Enter/Space**: Select the focused date.
+-   **PageUp/PageDown**: Navigate between months.
+
+### Screen reader support
+-   **Role**: `grid` (Standard ARIA pattern for calendars).
+-   **Labels**: Days are labeled with their full date.
+
+## Design Specifications
+
+### Typography
+-   **Days**: `text-sm`.
+-   **Headers**: `text-sm`, `font-medium`.
+
+### Spacing
+-   **Cell Size**: `size-8` (2rem) or `size-9`.
+-   **Gap**: `gap-1` between cells.
+
+## Implementation Notes
+
+### Technical considerations
+-   Built using `react-day-picker` (v8/v9).
+-   Styled using `buttonVariants` for navigation buttons.
+
+### Code reference
+-   **Component**: `src/components/ui/calendar.tsx`
+-   **Storybook**: `src/stories/calendar.stories.tsx`
+-   **Version**: 1.0.0
+
+## Related Components
+
+<FeatureList>
+-   **Popover**: Often used to host the calendar (Date Picker).
+-   **Input**: Used to display the selected date.
+</FeatureList>

@@ -9,7 +9,6 @@ import {
 const meta: Meta<typeof InputOTP> = {
   title: 'UI/InputOTP',
   component: InputOTP,
-  tags: ['autodocs'],
   argTypes: {
     maxLength: {
       control: 'number',

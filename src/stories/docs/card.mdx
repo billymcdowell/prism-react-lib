@@ -1,0 +1,102 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../card.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Card
+
+<SectionHeader
+  title="Component Overview"
+  description="Displays a card with header, content, and footer."
+/>
+
+Cards contain content and actions about a single subject. They serve as an entry point to more detailed information.
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+![Anatomy Diagram Placeholder: Annotated diagram showing: 1. Card, 2. Header, 3. Title, 4. Description, 5. Content, 6. Footer]
+
+1.  **Card (Root)**: The main container with background, border, and shadow.
+2.  **CardHeader**: Top section containing title and description.
+3.  **CardTitle**: The primary heading.
+4.  **CardDescription**: Secondary text explaining the card's purpose.
+5.  **CardContent**: The main body area for text, forms, or other components.
+6.  **CardFooter**: Bottom section for actions (buttons).
+
+## Variants
+Cards are generally a single variant but are highly composable.
+-   **Default**: White/Background color with a thin border and shadow.
+
+## States
+-   **Static**: Cards are usually static containers.
+-   **Interactive**: Can be made interactive (hover effects) if wrapped in a link or button, though usually the actions *inside* are interactive.
+
+## Behavior
+
+### Interaction patterns
+-   **Actions**: Primary actions usually live in the `CardFooter`.
+-   **Navigation**: Clicking the card itself can navigate to details (if the whole card is a link).
+
+### Responsive behavior
+-   **Fluid Width**: Cards typically fill their container or have a max-width.
+-   **Stacking**: On mobile, cards usually stack vertically.
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Card component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Grouping**: Use to group related information (e.g., a user profile, a product).
+    - **Dashboards**: Use for widgets and summary data.
+    - **Lists**: Use for collections of items (grid of cards).
+  </Dos>
+  <Donts>
+    - Nest cards deeply inside other cards.
+    - Use for inline content (use a simple div or separator).
+  </Donts>
+</Guidelines>
+
+## Accessibility
+
+### Screen reader support
+-   **Role**: generic `div` by default. If it's a standalone article, consider `role="article"`.
+-   **Headings**: Ensure `CardTitle` uses an appropriate heading level (h3, h4, etc.) relative to the page structure.
+
+## Design Specifications
+
+### Typography
+-   **Title**: `font-semibold`, `leading-none`, `tracking-tight`.
+-   **Description**: `text-sm`, `text-muted-foreground`.
+
+### Spacing
+-   **Padding**: `p-6` (1.5rem) is standard.
+-   **Gap**: `gap-6` between flex children in the root.
+
+### Colors
+-   **Background**: `bg-card`.
+-   **Text**: `text-card-foreground`.
+-   **Border**: `border-border`.
+
+## Implementation Notes
+
+### Technical considerations
+-   Built using standard HTML `div` elements.
+-   Composed of multiple sub-components for layout flexibility.
+
+### Code reference
+-   **Component**: `src/components/ui/card.tsx`
+-   **Storybook**: `src/stories/card.stories.tsx`
+-   **Version**: 1.0.0
+
+## Related Components
+
+<FeatureList>
+-   **Dialog**: For modal content similar to a card.
+-   **HoverCard**: For lightweight popover cards.
+</FeatureList>

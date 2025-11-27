@@ -13,7 +13,6 @@ import { ChevronRight, LayoutGrid } from 'lucide-react';
 const meta: Meta<typeof Item> = {
   title: 'UI/Item',
   component: Item,
-  tags: ['autodocs'],
 };
 
 export default meta;

@@ -1,0 +1,42 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../label.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Label
+
+<SectionHeader
+  title="Component Overview"
+  description="Renders an accessible label associated with controls."
+/>
+
+## Demo
+
+<Canvas />
+
+## Behavior
+
+### Interaction patterns
+-   **Click**: Clicking the label focuses the associated input.
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Label component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Association**: Always associate with an input via `htmlFor`.
+  </Dos>
+</Guidelines>
+
+## Implementation Notes
+
+### Technical considerations
+-   Built using `@radix-ui/react-label`.
+
+### Code reference
+-   **Component**: `src/components/ui/label.tsx`
+-   **Storybook**: `src/stories/label.stories.tsx`
+-   **Version**: 1.0.0

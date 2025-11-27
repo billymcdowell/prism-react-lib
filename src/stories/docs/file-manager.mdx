@@ -1,0 +1,36 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../file-manager.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# File Manager Layout
+
+<SectionHeader
+  title="Example Overview"
+  description="A comprehensive file manager application layout."
+/>
+
+Demonstrates how to compose multiple components to build a complex application interface.
+
+## Demo
+
+<Canvas />
+
+## Components Used
+This layout utilizes:
+-   **Sidebar**: For navigation and folder structure.
+-   **Breadcrumb**: For location tracking.
+-   **Table**: For the list view of files.
+-   **Grid**: Custom grid using Cards for the thumbnail view.
+-   **DropdownMenu**: For file actions.
+-   **Dialog/Sheet**: (Potential integrations for details).
+
+## Features
+-   **View Toggle**: Switch between Grid and List views.
+-   **Navigation**: Sidebar and Breadcrumbs.
+-   **Search**: Header search bar.
+
+### Code reference
+-   **Layout**: `src/layouts/FileManager.tsx`
+-   **Storybook**: `src/stories/file-manager.stories.tsx`

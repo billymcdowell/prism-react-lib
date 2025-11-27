@@ -1,0 +1,51 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../separator.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Separator
+
+<SectionHeader
+  title="Component Overview"
+  description="Visually or semantically separates content."
+/>
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+1.  **Separator (Root)**: The line (`div` or `hr`).
+
+## Variants
+-   **Horizontal**: Default.
+-   **Vertical**: Requires explicit height on parent or self.
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Separator component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Grouping**: Use to group distinct sections of content.
+    - **Lists**: Use between list items.
+  </Dos>
+</Guidelines>
+
+## Accessibility
+
+### Screen reader support
+-   **Role**: `separator` (if semantic) or `none` (if decorative).
+-   **Props**: `decorative` prop controls the role (default `true` = hidden from ARIA).
+
+## Implementation Notes
+
+### Technical considerations
+-   Built using `@radix-ui/react-separator`.
+
+### Code reference
+-   **Component**: `src/components/ui/separator.tsx`
+-   **Storybook**: `src/stories/separator.stories.tsx`
+-   **Version**: 1.0.0

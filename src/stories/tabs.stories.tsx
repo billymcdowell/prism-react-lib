@@ -15,7 +15,6 @@ import { Label } from '@/components/ui/label';
 const meta: Meta<typeof Tabs> = {
   title: 'UI/Tabs',
   component: Tabs,
-  tags: ['autodocs'],
 };
 
 export default meta;

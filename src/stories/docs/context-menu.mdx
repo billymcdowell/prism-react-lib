@@ -1,0 +1,74 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../context-menu.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Context Menu
+
+<SectionHeader
+  title="Component Overview"
+  description="Displays a menu to the user — such as a set of actions or functions — triggered by a right-click."
+/>
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+![Anatomy Diagram Placeholder: Annotated diagram showing: 1. Trigger Area, 2. Content (Menu), 3. Items, 4. Submenus]
+
+1.  **ContextMenu (Root)**: The wrapping component.
+2.  **ContextMenuTrigger**: The area that listens for the right-click.
+3.  **ContextMenuContent**: The popup menu.
+4.  **ContextMenuItem**: Individual actions.
+5.  **ContextMenuSub**: Nested submenus.
+
+## Behavior
+
+### Interaction patterns
+-   **Right-Click**: Opens the menu.
+-   **Click Outside**: Closes the menu.
+-   **Esc**: Closes the menu.
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Context Menu component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Advanced Actions**: Use for power user features or shortcuts.
+    - **File Managers**: Use for file operations (Rename, Delete).
+  </Dos>
+  <Donts>
+    - **Primary Navigation**: Rely solely on context menus for critical actions (not discoverable on mobile).
+    - **Complex Forms**: Put complex inputs inside a context menu.
+  </Donts>
+</Guidelines>
+
+## Accessibility
+
+### Screen reader support
+-   **Role**: `menu` or `menubar`.
+-   **Trigger**: Not typically announced as a context menu trigger, so ensure actions are available elsewhere.
+
+### Keyboard navigation
+-   **Shift + F10**: Standard shortcut to open context menu (if supported/implemented).
+-   **Arrows**: Navigate the menu items.
+
+## Implementation Notes
+
+### Technical considerations
+-   Built using `@radix-ui/react-context-menu`.
+
+### Code reference
+-   **Component**: `src/components/ui/context-menu.tsx`
+-   **Storybook**: `src/stories/context-menu.stories.tsx`
+-   **Version**: 1.0.0
+
+## Related Components
+
+<FeatureList>
+-   **DropdownMenu**: Similar visually but triggered by a left click.
+</FeatureList>

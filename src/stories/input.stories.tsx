@@ -4,7 +4,6 @@ import { Input } from '@/components/ui/input';
 const meta: Meta<typeof Input> = {
   title: 'UI/Input',
   component: Input,
-  tags: ['autodocs'],
   argTypes: {
     type: {
       control: 'text',

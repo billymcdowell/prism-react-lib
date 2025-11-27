@@ -11,7 +11,6 @@ import { Search, User } from 'lucide-react';
 const meta: Meta<typeof InputGroup> = {
   title: 'UI/InputGroup',
   component: InputGroup,
-  tags: ['autodocs'],
 };
 
 export default meta;

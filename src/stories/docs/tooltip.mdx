@@ -1,0 +1,91 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as TooltipStories from '../tooltip.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={TooltipStories} />
+
+# Tooltip
+
+<SectionHeader
+  title="Component Overview"
+  description="A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it."
+/>
+
+Tooltips provide contextual help or extra information without cluttering the UI. They appear on hover or focus and disappear when the cursor moves away or focus is lost.
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+
+1.  **TooltipProvider**: Wraps the application or specific section to manage tooltip delays.
+2.  **Tooltip (Root)**: The container for a specific tooltip instance.
+3.  **TooltipTrigger**: The element that triggers the tooltip (e.g., a button or icon).
+4.  **TooltipContent**: The popup containing the helper text.
+5.  **Arrow**: A visual indicator pointing to the trigger.
+
+## States
+-   **Closed**: Invisible.
+-   **Open**: Visible, usually positioned next to the trigger (top, bottom, left, right).
+
+## Behavior
+
+### Interaction patterns
+-   **Hover**: The tooltip appears after a short delay (`delayDuration`) when hovering over the trigger.
+-   **Focus**: The tooltip appears immediately when the trigger receives keyboard focus.
+-   **Dismiss**: Disappears when the mouse leaves the trigger or focus moves away. Esc key also dismisses it.
+
+## Usage Guidelines
+
+<Guidelines>
+  <Dos>
+    - Use for explaining icon-only buttons.
+    - Use for providing additional context for truncated text.
+    - Keep text short and concise.
+  </Dos>
+  <Donts>
+    - Use for critical information that users must see to complete a task.
+    - Put interactive elements (links, buttons) inside a tooltip (use `Popover` or `HoverCard` instead).
+    - Repeat the text that is already visible on the trigger.
+  </Donts>
+</Guidelines>
+
+## Accessibility
+
+### Keyboard navigation
+-   **Tab**: Focuses the trigger, showing the tooltip.
+-   **Escape**: Dismisses the tooltip.
+
+### Screen reader support
+-   **Role**: `role="tooltip"`.
+-   The trigger is automatically associated with the content via `aria-describedby`.
+
+## Design Specifications
+
+### Colors
+-   **Background**: `bg-primary` or `bg-foreground` (usually inverted contrast).
+-   **Text**: `text-primary-foreground` or `text-background`.
+
+### Typography
+-   **Size**: `text-xs` or `text-sm`.
+
+## Implementation Notes
+
+### Technical considerations
+-   Built using `@radix-ui/react-tooltip`.
+-   Requires `TooltipProvider` to function correctly.
+
+### Code reference
+-   **Component**: `src/components/ui/tooltip.tsx`
+-   **Storybook**: `src/stories/tooltip.stories.tsx`
+-   **Dependencies**: `@radix-ui/react-tooltip`
+
+## Related Components
+
+<FeatureList>
+-   **Popover**: For richer content with interactive elements.
+-   **HoverCard**: For previewing content (like a user profile) on hover.
+-   **Toast**: For notifications.
+</FeatureList>
+

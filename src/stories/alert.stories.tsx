@@ -5,7 +5,6 @@ import { Terminal, AlertCircle } from 'lucide-react';
 const meta: Meta<typeof Alert> = {
   title: 'UI/Alert',
   component: Alert,
-  tags: ['autodocs'],
   argTypes: {
     variant: {
       control: 'select',

@@ -5,7 +5,6 @@ import { Bold } from 'lucide-react';
 const meta: Meta<typeof Toggle> = {
   title: 'UI/Toggle',
   component: Toggle,
-  tags: ['autodocs'],
   argTypes: {
     variant: {
       control: 'select',

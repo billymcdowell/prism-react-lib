@@ -14,7 +14,6 @@ import React from 'react';
 const meta: Meta<typeof NavigationMenu> = {
   title: 'UI/NavigationMenu',
   component: NavigationMenu,
-  tags: ['autodocs'],
 };
 
 export default meta;

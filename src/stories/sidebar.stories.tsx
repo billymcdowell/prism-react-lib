@@ -19,7 +19,6 @@ import { Calendar, Home, Inbox, Search, Settings } from 'lucide-react';
 const meta: Meta<typeof Sidebar> = {
   title: 'UI/Sidebar',
   component: Sidebar,
-  tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
   },

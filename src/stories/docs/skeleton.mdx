@@ -1,0 +1,46 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../skeleton.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Skeleton
+
+<SectionHeader
+  title="Component Overview"
+  description="Use to show a placeholder while content is loading."
+/>
+
+## Demo
+
+<Canvas />
+
+## Behavior
+
+### Animation
+-   **Pulse**: Subtle pulsing animation (`animate-pulse`).
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Skeleton component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Match Layout**: Shape skeletons to match the content that will load (circle for avatar, rect for text).
+    - **Progressive Loading**: Show layout immediately before data arrives.
+  </Dos>
+  <Donts>
+    - **Spinners**: Don't mix skeletons and spinners in the same area (choose one).
+  </Donts>
+</Guidelines>
+
+## Design Specifications
+
+### Colors
+-   **Color**: `bg-muted` (or `bg-primary/10`).
+
+### Code reference
+-   **Component**: `src/components/ui/skeleton.tsx`
+-   **Storybook**: `src/stories/skeleton.stories.tsx`
+-   **Version**: 1.0.0

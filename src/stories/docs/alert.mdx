@@ -1,0 +1,115 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../alert.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Alert
+
+<SectionHeader
+  title="Component Overview"
+  description="Displays a callout for user attention."
+/>
+
+The Alert component is used to display important messages, warnings, or errors to the user. It typically appears at the top of a page or section.
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+![Anatomy Diagram Placeholder: Annotated diagram showing: 1. Container, 2. Icon, 3. Title, 4. Description]
+
+1.  **Alert (Root)**: The container element with border and background colors.
+2.  **Icon**: An optional icon to visually indicate the type of alert (e.g., Info, Warning, Error).
+3.  **AlertTitle**: The bold heading of the alert.
+4.  **AlertDescription**: The main text content of the alert.
+
+## Variants
+The Alert supports functional variants based on the `variant` prop:
+
+-   **Default**: Used for informational or neutral messages.
+    -   `variant="default"` (background: background, text: foreground)
+-   **Destructive**: Used for errors or critical warnings.
+    -   `variant="destructive"` (border: destructive/50, text: destructive)
+
+## States
+-   **Static**: Alerts are generally static and do not have interactive states like hover or focus, unless they contain links.
+
+## Behavior
+
+### Interaction patterns
+-   Alerts are typically read-only.
+-   If an alert contains a link, standard link interaction patterns apply.
+
+### Responsive behavior
+-   The Alert expands to fill 100% of the width of its container.
+-   Text wraps to accommodate smaller screens.
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Alert component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **System Status**: Use to communicate successful updates, errors, or system maintenance.
+    - **Validation**: Use for form validation summaries.
+    - **Contextual Info**: Use to provide context for a specific section.
+  </Dos>
+  <Donts>
+    - Use for permanent content that is part of the page structure.
+    - Overuse, as too many alerts can cause "alert fatigue".
+  </Donts>
+</Guidelines>
+
+## Accessibility
+
+### Screen reader support
+-   **Role**: `alert`. This triggers an immediate announcement by screen readers.
+-   **ARIA**: The title can be linked as a label if necessary, but the role implies the content is important.
+
+### WCAG compliance
+-   **Contrast**: Ensures text has sufficient contrast against the background color (especially for the destructive variant).
+
+## Design Specifications
+
+### Typography
+-   **Title**: `font-medium`, `leading-none`, `tracking-tight`.
+-   **Description**: `text-sm`, `[&_p]:leading-relaxed`.
+
+### Spacing
+-   **Padding**: `p-4` (1rem).
+-   **Icon Gap**: Icon is positioned absolutely or via flex gap.
+
+### Colors
+-   **Default**: `bg-background`, `text-foreground`.
+-   **Destructive**: `border-destructive/50`, `text-destructive`, `dark:border-destructive`.
+
+<SectionHeader
+  title="Content Guidelines"
+  description="Writing effective content for alerts."
+/>
+
+### Writing style
+-   **Headings**: Short and punchy (e.g., "Error", "Success", "Note").
+-   **Content**: Clear and actionable. Explain what happened and what the user should do next.
+
+## Implementation Notes
+
+### Technical considerations
+-   Built using standard HTML elements with Tailwind CSS.
+-   `class-variance-authority` (cva) used for variant styling.
+
+### Code reference
+-   **Component**: `src/components/ui/alert.tsx`
+-   **Storybook**: `src/stories/alert.stories.tsx`
+-   **Version**: 1.0.0
+
+## Related Components
+
+<FeatureList>
+-   **Toast**: For temporary notifications that appear and disappear.
+-   **AlertDialog**: For critical interruptions requiring user action.
+</FeatureList>
+

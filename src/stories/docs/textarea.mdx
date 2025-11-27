@@ -1,0 +1,92 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as TextareaStories from '../textarea.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={TextareaStories} />
+
+# Textarea
+
+<SectionHeader
+  title="Component Overview"
+  description="A form element that allows users to enter multiple lines of text."
+/>
+
+Textareas are used when the expected input exceeds a single line, such as comments, feedback forms, or messages.
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+
+1.  **Textarea**: The multi-line input field.
+2.  **Label (Optional)**: Text describing the expected input.
+3.  **Helper Text (Optional)**: Assistive text below the field.
+
+## States
+-   **Default**: The normal interactive state.
+-   **Focus**: The field is active and ready for input (highlighted border/ring).
+-   **Disabled**: The field is non-interactive and dimmed.
+-   **Error**: Visual indication (e.g., red border) that the input is invalid.
+-   **Placeholder**: Hint text shown when empty.
+
+## Behavior
+
+### Interaction patterns
+-   **Click**: Focuses the field for typing.
+-   **Typing**: Enters text. Scrollbars appear if content exceeds the height.
+-   **Resize**: Users can typically resize the height via the grip handle (if enabled).
+
+## Usage Guidelines
+
+<Guidelines>
+  <Dos>
+    - Use for long-form text input (descriptions, bios, comments).
+    - Provide a clear label.
+    - Use placeholder text to provide an example of the expected input format (not as a replacement for a label).
+  </Dos>
+  <Donts>
+    - Use for single-line input (use `Input` instead).
+    - Disable resizing if the content might grow significantly, unless layout constraints strictly forbid it.
+  </Donts>
+</Guidelines>
+
+## Accessibility
+
+### Keyboard navigation
+-   **Tab**: Moves focus into and out of the textarea.
+
+### Screen reader support
+-   Ensure the textarea has an associated `label` (via `htmlFor`/`id`) or `aria-label`/`aria-labelledby`.
+
+## Design Specifications
+
+### Typography
+-   **Font**: Inherits `text-base` or `text-sm`.
+
+### Colors
+-   **Border**: `border-input`.
+-   **Background**: `bg-transparent`.
+-   **Focus Ring**: `ring-ring`.
+
+### Sizing
+-   **Min Height**: `min-h-[80px]` (default `min-h-16`).
+-   **Width**: 100% of container usually.
+
+## Implementation Notes
+
+### Technical considerations
+-   Standard HTML `<textarea>` element styled with Tailwind CSS.
+-   Includes `field-sizing-content` utility where supported for auto-growing, or standard resizing.
+
+### Code reference
+-   **Component**: `src/components/ui/textarea.tsx`
+-   **Storybook**: `src/stories/textarea.stories.tsx`
+
+## Related Components
+
+<FeatureList>
+-   **Input**: For single-line text.
+-   **Form**: Wrapper for form validation and layout.
+</FeatureList>
+

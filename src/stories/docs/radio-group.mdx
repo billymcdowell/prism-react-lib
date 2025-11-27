@@ -1,0 +1,63 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../radio-group.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Radio Group
+
+<SectionHeader
+  title="Component Overview"
+  description="A set of checkable buttons—known as radio buttons—where no more than one of the buttons can be checked at a time."
+/>
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+![Anatomy Diagram Placeholder: Annotated diagram showing: 1. Group, 2. Item, 3. Indicator, 4. Label]
+
+1.  **RadioGroup (Root)**: Wrapper.
+2.  **RadioGroupItem**: The clickable circle.
+3.  **Indicator**: The dot inside the circle.
+4.  **Label**: Associated text.
+
+## Behavior
+
+### Interaction patterns
+-   **Click**: Selects the option.
+-   **Arrow Keys**: Moves selection between options (standard radio behavior).
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Radio Group component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Single Selection**: Use when user must pick exactly one option.
+    - **Few Options**: Use for 2-5 options.
+  </Dos>
+  <Donts>
+    - **Many Options**: Use for >5 options (use Select).
+    - **Optional**: Use if selection is optional (use Checkbox or add "None" option).
+  </Donts>
+</Guidelines>
+
+## Accessibility
+
+### Screen reader support
+-   **Role**: `radiogroup`.
+-   **Item Role**: `radio`.
+-   **Navigation**: Roving tabindex.
+
+## Implementation Notes
+
+### Technical considerations
+-   Built using `@radix-ui/react-radio-group`.
+
+### Code reference
+-   **Component**: `src/components/ui/radio-group.tsx`
+-   **Storybook**: `src/stories/radio-group.stories.tsx`
+-   **Version**: 1.0.0

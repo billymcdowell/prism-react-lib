@@ -5,7 +5,6 @@ import { Label } from '@/components/ui/label';
 const meta: Meta<typeof Textarea> = {
   title: 'UI/Textarea',
   component: Textarea,
-  tags: ['autodocs'],
   argTypes: {
     placeholder: {
       control: 'text',

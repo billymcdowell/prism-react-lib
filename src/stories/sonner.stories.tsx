@@ -6,7 +6,6 @@ import { toast } from 'sonner';
 const meta: Meta<typeof Toaster> = {
   title: 'UI/Sonner',
   component: Toaster,
-  tags: ['autodocs'],
 };
 
 export default meta;

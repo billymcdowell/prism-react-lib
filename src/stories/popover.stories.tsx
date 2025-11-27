@@ -11,7 +11,6 @@ import { Label } from '@/components/ui/label';
 const meta: Meta<typeof Popover> = {
   title: 'UI/Popover',
   component: Popover,
-  tags: ['autodocs'],
 };
 
 export default meta;

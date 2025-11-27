@@ -9,7 +9,6 @@ import {
 const meta: Meta<typeof Accordion> = {
   title: 'UI/Accordion',
   component: Accordion,
-  tags: ['autodocs'],
 };
 
 export default meta;

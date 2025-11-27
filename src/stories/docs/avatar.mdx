@@ -1,0 +1,113 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../avatar.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Avatar
+
+<SectionHeader
+  title="Component Overview"
+  description="An image element with a fallback for representing the user."
+/>
+
+The Avatar component is used to represent a user or entity. It displays a profile picture or a fallback (initials) when the image is unavailable.
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+![Anatomy Diagram Placeholder: Annotated diagram showing: 1. Avatar (Root), 2. AvatarImage, 3. AvatarFallback]
+
+1.  **Avatar (Root)**: The wrapper element that handles sizing, clipping, and shape (circular).
+2.  **AvatarImage**: The image element that renders the source URL. Handles loading error states.
+3.  **AvatarFallback**: The content displayed when the image fails to load or is not provided (usually initials or an icon).
+
+## Variants
+The Avatar component is typically used in a single variant, but can be sized via utility classes.
+
+-   **Default**: Circular, `size-8` (2rem/32px).
+-   **Sizes**: Controlled via Tailwind classes (e.g., `size-10`, `size-12`).
+
+## States
+-   **Loading**: The image is loading. Fallback is hidden or shown depending on implementation preference (Radix handles this).
+-   **Loaded**: Image is successfully loaded and visible.
+-   **Error**: Image failed to load. Fallback is shown.
+
+## Behavior
+
+### Interaction patterns
+-   **Static**: Usually non-interactive, but can be wrapped in a button or link.
+-   **Hover**: No default hover state unless wrapped.
+
+### Responsive behavior
+-   Fixed size by default.
+-   Can be made responsive using Tailwind responsive prefixes (e.g., `size-8 md:size-10`).
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Avatar component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **User Profiles**: Use to represent users in profiles, comments, or lists.
+    - **Fallback**: Always provide a fallback for when the image fails to load.
+    - **Initials**: Use 1-2 initials for the fallback text.
+  </Dos>
+  <Donts>
+    - Use for generic images that are not related to an identity (use `img` or `AspectRatio`).
+    - Use widely varying aspect ratios for the source image (should be square).
+  </Donts>
+</Guidelines>
+
+## Accessibility
+
+### Screen reader support
+-   **Role**: `img` (on the AvatarImage).
+-   **Alt Text**: The `alt` prop on `AvatarImage` is crucial. It describes the image to screen readers.
+-   **Fallback**: If the image fails, the fallback content is exposed.
+
+### WCAG compliance
+-   **Contrast**: Ensure fallback text has sufficient contrast against the fallback background (`bg-muted` / `text-foreground`).
+
+## Design Specifications
+
+### Typography
+-   **Fallback Text**: Inherits font settings, typically centered and uppercase.
+
+### Spacing
+-   **Size**: Default `size-8` (2rem).
+-   **Shape**: `rounded-full` (Circle).
+
+### Colors
+-   **Fallback Background**: `bg-muted`.
+-   **Fallback Text**: `text-muted-foreground` (implied by muted background usually, or explicitly set).
+
+<SectionHeader
+  title="Content Guidelines"
+  description="Writing effective content for avatars."
+/>
+
+### Writing style
+-   **Initials**: Use the first letter of the first and last name (e.g., "Jane Doe" -> "JD").
+-   **Alt Text**: Use the user's name (e.g., "Jane Doe").
+
+## Implementation Notes
+
+### Technical considerations
+-   Built using `@radix-ui/react-avatar`.
+-   Handles image loading states automatically with `onLoadingStatusChange`.
+
+### Code reference
+-   **Component**: `src/components/ui/avatar.tsx`
+-   **Storybook**: `src/stories/avatar.stories.tsx`
+-   **Version**: 1.0.0
+
+## Related Components
+
+<FeatureList>
+-   **Tooltip**: Often used to show the full user name on hover.
+-   **DropdownMenu**: Often triggered by clicking the avatar (User Menu).
+</FeatureList>

@@ -5,7 +5,6 @@ import React from 'react';
 const meta: Meta<typeof Calendar> = {
   title: 'UI/Calendar',
   component: Calendar,
-  tags: ['autodocs'],
 };
 
 export default meta;

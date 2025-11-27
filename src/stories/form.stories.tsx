@@ -19,7 +19,6 @@ import { Toaster } from '@/components/ui/sonner';
 const meta: Meta<typeof Form> = {
   title: 'UI/Form',
   component: Form,
-  tags: ['autodocs'],
 };
 
 export default meta;
