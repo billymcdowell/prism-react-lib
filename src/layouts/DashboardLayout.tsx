@@ -104,7 +104,7 @@ export default function DashboardLayout() {
             </DropdownMenu>
           </div>
         </header>
-        <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
+        <div className="flex flex-1 flex-col gap-4 p-4">
           <div className="grid auto-rows-min gap-4 md:grid-cols-3">
             <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -163,7 +163,7 @@ export default function DashboardLayout() {
              {/* Placeholder content */}
              <div className="space-y-4">
                 {[1, 2, 3, 4, 5].map((i) => (
-                    <div key={i} className="flex items-center gap-4 p-4 bg-background rounded-lg border">
+                    <div key={i} className="flex items-center gap-4 p-4 bg-card rounded-lg border">
                         <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
                             <FileText className="h-5 w-5 text-primary" />
                         </div>
