@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import ChatLayout from '../layouts/ChatLayout';
+import LandingPagePricing from '@/layouts/LandingPagePricing';
 
 const meta: Meta = {
-  title: 'Examples/Chat',
+  title: 'Examples/Landing Page Pricing',
   parameters: {
     layout: 'fullscreen',
   },
@@ -11,9 +11,9 @@ const meta: Meta = {
 export default meta;
 type Story = StoryObj;
 
-export const ChatExample: Story = {
+export const LandingPricingExample: Story = {
   render: () => (
-    <ChatLayout />
+    <LandingPagePricing />
   ),
 };
 

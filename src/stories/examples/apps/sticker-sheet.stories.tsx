@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import EcommerceDashboard from '../layouts/EcommerceDashboard';
+import StickerSheetLayout from '@/layouts/StickerSheetLayout';
 
 const meta: Meta = {
-  title: 'Examples/Ecommerce Dashboard',
+  title: 'Examples/Sticker Sheet',
   parameters: {
     layout: 'fullscreen',
   },
@@ -11,9 +11,9 @@ const meta: Meta = {
 export default meta;
 type Story = StoryObj;
 
-export const EcommerceExample: Story = {
+export const StickerSheetExample: Story = {
   render: () => (
-    <EcommerceDashboard />
+    <StickerSheetLayout />
   ),
 };
 

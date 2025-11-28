@@ -17,7 +17,7 @@ import { Steps, StepsContent, StepsItem, StepsTrigger } from "@/components/ai/st
 import { Tool } from "@/components/ai/tool"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { Brain, Check, Globe, Search, Send } from "lucide-react"
+import { Brain, Check, Globe, Search } from "lucide-react"
 import { useState } from "react"
 
 export function ResearchAssistantLayout() {

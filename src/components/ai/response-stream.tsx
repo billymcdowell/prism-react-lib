@@ -112,13 +112,16 @@ function useTextStream({
   const updateSegments = useCallback((text: string) => {
     if (modeRef.current === "fade") {
       try {
+
+        // TODO: Fix type error
+        // @ts-ignore: Intl.Segmenter may not exist in all environments
         const segmenter = new Intl.Segmenter(navigator.language, {
           granularity: "word",
         })
         const segmentIterator = segmenter.segment(text)
         const newSegments = Array.from(segmentIterator).map(
           (segment, index) => ({
-            text: segment.segment,
+            text: (segment as any).segment,
             index,
           })
         )

@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import AnalyticsDashboard from '../layouts/AnalyticsDashboard';
+import FileManager from '@/layouts/FileManager';
 
 const meta: Meta = {
-  title: 'Examples/Analytics Dashboard',
+  title: 'Examples/File Manager',
   parameters: {
     layout: 'fullscreen',
   },
@@ -11,9 +11,9 @@ const meta: Meta = {
 export default meta;
 type Story = StoryObj;
 
-export const AnalyticsExample: Story = {
+export const FileManagerExample: Story = {
   render: () => (
-    <AnalyticsDashboard />
+    <FileManager />
   ),
 };
 

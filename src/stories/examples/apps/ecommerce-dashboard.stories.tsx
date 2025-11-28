@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import SettingsLayout from '../layouts/SettingsLayout';
+import EcommerceDashboard from '@/layouts/EcommerceDashboard';
 
 const meta: Meta = {
-  title: 'Examples/Settings',
+  title: 'Examples/Ecommerce Dashboard',
   parameters: {
     layout: 'fullscreen',
   },
@@ -11,9 +11,9 @@ const meta: Meta = {
 export default meta;
 type Story = StoryObj;
 
-export const SettingsExample: Story = {
+export const EcommerceExample: Story = {
   render: () => (
-    <SettingsLayout />
+    <EcommerceDashboard />
   ),
 };
 

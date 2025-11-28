@@ -2,8 +2,7 @@
 
 import {
   ChatContainerContent,
-  ChatContainerRoot,
-  ChatContainerScrollAnchor,
+  ChatContainerRoot
 } from "@/components/ai/chat-container"
 import { Loader } from "@/components/ai/loader"
 import { Message, MessageAvatar, MessageContent } from "@/components/ai/message"

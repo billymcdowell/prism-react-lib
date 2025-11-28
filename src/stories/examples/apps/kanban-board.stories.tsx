@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import FileManager from '../layouts/FileManager';
+import KanbanBoard from '@/layouts/KanbanBoard';
 
 const meta: Meta = {
-  title: 'Examples/File Manager',
+  title: 'Examples/Kanban Board',
   parameters: {
     layout: 'fullscreen',
   },
@@ -11,9 +11,8 @@ const meta: Meta = {
 export default meta;
 type Story = StoryObj;
 
-export const FileManagerExample: Story = {
+export const KanbanExample: Story = {
   render: () => (
-    <FileManager />
+    <KanbanBoard />
   ),
 };
-

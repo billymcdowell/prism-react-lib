@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import KanbanBoard from '../layouts/KanbanBoard';
+import AnalyticsDashboard from '@/layouts/AnalyticsDashboard';
 
 const meta: Meta = {
-  title: 'Examples/Kanban Board',
+  title: 'Examples/Analytics Dashboard',
   parameters: {
     layout: 'fullscreen',
   },
@@ -11,9 +11,9 @@ const meta: Meta = {
 export default meta;
 type Story = StoryObj;
 
-export const KanbanExample: Story = {
+export const AnalyticsExample: Story = {
   render: () => (
-    <KanbanBoard />
+    <AnalyticsDashboard />
   ),
 };
 

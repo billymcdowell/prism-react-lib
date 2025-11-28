@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import LandingPagePricing from '../layouts/LandingPagePricing';
+import LandingPageHero from '@/layouts/LandingPageHero';
 
 const meta: Meta = {
-  title: 'Examples/Landing Page Pricing',
+  title: 'Examples/Landing Page Hero',
   parameters: {
     layout: 'fullscreen',
   },
@@ -11,9 +11,9 @@ const meta: Meta = {
 export default meta;
 type Story = StoryObj;
 
-export const LandingPricingExample: Story = {
+export const LandingHeroExample: Story = {
   render: () => (
-    <LandingPagePricing />
+    <LandingPageHero />
   ),
 };
 
