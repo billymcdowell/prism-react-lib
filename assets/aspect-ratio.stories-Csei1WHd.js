@@ -1,0 +1,10 @@
+import{j as e}from"./jsx-runtime-u17CrQMm.js";import{r as d}from"./iframe-CK9smaC8.js";import"./index-BtDr-iC0.js";import{c as f}from"./index-lxHNymn1.js";var g=["a","button","div","form","h2","h3","img","input","label","li","nav","ol","p","select","span","svg","ul"],v=g.reduce((t,r)=>{const s=f(`Primitive.${r}`),a=d.forwardRef((i,n)=>{const{asChild:p,...m}=i,u=p?s:r;return typeof window<"u"&&(window[Symbol.for("radix-ui")]=!0),e.jsx(u,{...m,ref:n})});return a.displayName=`Primitive.${r}`,{...t,[r]:a}},{}),b="AspectRatio",l=d.forwardRef((t,r)=>{const{ratio:s=1/1,style:a,...i}=t;return e.jsx("div",{style:{position:"relative",width:"100%",paddingBottom:`${100/s}%`},"data-radix-aspect-ratio-wrapper":"",children:e.jsx(v.div,{...i,ref:r,style:{...a,position:"absolute",top:0,right:0,bottom:0,left:0}})})});l.displayName=b;var h=l;function c({...t}){return e.jsx(h,{"data-slot":"aspect-ratio",...t})}c.__docgenInfo={description:"",methods:[],displayName:"AspectRatio"};const w={title:"UI/AspectRatio",component:c,argTypes:{ratio:{control:"number"}}},o={args:{ratio:16/9},render:t=>e.jsx("div",{className:"w-[450px]",children:e.jsx(c,{...t,className:"bg-slate-50 dark:bg-slate-800",children:e.jsx("img",{src:"https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80",alt:"Photo by Drew Beamer",className:"rounded-md object-cover w-full h-full"})})})};o.parameters={...o.parameters,docs:{...o.parameters?.docs,source:{originalSource:`{
+  args: {
+    ratio: 16 / 9
+  },
+  render: args => <div className="w-[450px]">
+      <AspectRatio {...args} className="bg-slate-50 dark:bg-slate-800">
+        <img src="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80" alt="Photo by Drew Beamer" className="rounded-md object-cover w-full h-full" />
+      </AspectRatio>
+    </div>
+}`,...o.parameters?.docs?.source}}};const x=["Default"],S=Object.freeze(Object.defineProperty({__proto__:null,Default:o,__namedExportsOrder:x,default:w},Symbol.toStringTag,{value:"Module"}));export{S};
