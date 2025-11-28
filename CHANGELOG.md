@@ -1,5 +1,11 @@
 # prism-react-lib
 
+## 0.2.0
+
+### Minor Changes
+
+- Added Date Range Picker + Date Picker + useIsTablet hook
+
 ## 0.1.2
 
 ### Patch Changes

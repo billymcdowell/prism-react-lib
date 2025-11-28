@@ -6,9 +6,6 @@ const meta: Meta<typeof DateRangePicker> = {
     title: 'UI/DateRangePicker',
     component: DateRangePicker,
     tags: ['autodocs'],
-    parameters: {
-        layout: 'centered',
-    },
     argTypes: {
         align: {
             control: 'select',
@@ -38,7 +35,7 @@ const DateRangePickerWrapper = (args: DateRangePickerProps) => {
     });
 
     return (
-        <div className="flex flex-col items-center gap-8">
+        <div className="flex flex-col gap-8 items-start">
             <DateRangePicker
                 {...args}
                 initialDateFrom={values.from}
@@ -55,14 +52,6 @@ const DateRangePickerWrapper = (args: DateRangePickerProps) => {
                     args.onUpdate?.(newValues);
                 }}
             />
-            {/* <DateRangePicker
-                onUpdate={(values) => console.log(values)}
-                initialDateFrom="2023-01-01"
-                initialDateTo="2023-12-31"
-                align="start"
-                locale="en-GB"
-                showCompare={false}
-            /> */}
             <div className="text-sm text-muted-foreground bg-slate-100 p-4 rounded-md max-w-md">
                 <p><strong>Selected Range:</strong></p>
                 <p>From: {values.from instanceof Date ? values.from.toLocaleDateString() : values.from}</p>

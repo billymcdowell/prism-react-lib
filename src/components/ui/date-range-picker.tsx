@@ -9,7 +9,8 @@ import { Label } from './label'
 import { Switch } from './switch'
 import { ChevronUpIcon, ChevronDownIcon, CheckIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { Sheet, SheetClose, SheetContent, SheetFooter, SheetTrigger } from './sheet'
+import { Sheet, SheetClose, SheetContent, SheetFooter, SheetTitle, SheetTrigger } from './sheet'
+import { useIsMobile, useIsTablet } from '@/hooks/use-mobile'
 
 export interface DateRangePickerProps {
     /** Click handler for applying the updates from DateRangePicker. */
@@ -368,22 +369,8 @@ export const DateRangePicker: FC<DateRangePickerProps> & {
 
         const [selectedPreset, setSelectedPreset] = useState<string | undefined>(undefined)
 
-        const [isSmallScreen, setIsSmallScreen] = useState(
-            typeof window !== 'undefined' ? window.innerWidth < 960 : false
-        )
-
-        useEffect(() => {
-            const handleResize = (): void => {
-                setIsSmallScreen(window.innerWidth < 960)
-            }
-
-            window.addEventListener('resize', handleResize)
-
-            // Clean up event listener on unmount
-            return () => {
-                window.removeEventListener('resize', handleResize)
-            }
-        }, [])
+        const isMobile = useIsMobile()
+        const isTablet = useIsTablet()
 
         const getPresetRange = (presetName: string): DateRange => {
             const preset = PRESETS.find(({ name }) => name === presetName)
@@ -533,31 +520,6 @@ export const DateRangePicker: FC<DateRangePickerProps> & {
             checkPreset()
         }, [range])
 
-        const PresetButton = ({
-            preset,
-            label,
-            isSelected
-        }: {
-            preset: string
-            label: string
-            isSelected: boolean
-        }): JSX.Element => (
-            <Button
-                className={cn(isSelected && 'pointer-events-none')}
-                variant="ghost"
-                onClick={() => {
-                    setPreset(preset)
-                }}
-            >
-                <>
-                    <span className={cn('pr-2 opacity-0', isSelected && 'opacity-70')}>
-                        <CheckIcon width={18} height={18} />
-                    </span>
-                    {label}
-                </>
-            </Button>
-        )
-
         // Helper function to check if two date ranges are equal
         const areRangesEqual = (a?: DateRange, b?: DateRange): boolean => {
             if (!a || !b) return a === b // If either is undefined, return true if both are undefined
@@ -600,10 +562,10 @@ export const DateRangePicker: FC<DateRangePickerProps> & {
 
         const popoverContent = (
             <>
-                <div className="flex flex-row py-2">
-                    <div className="flex">
-                        <div className="flex flex-col">
-                            <div className="flex flex-col lg:flex-row gap-2 px-3 justify-end items-center lg:items-start pb-4 lg:pb-0">
+                <div className="flex flex-col sm:flex-row p-2 overflow-y-auto max-h-screen">
+                    <div className="flex justify-center grow">
+                        <div className="flex flex-col w-full max-w-xs sm:max-w-fit h-[29.25rem] sm:h-auto">
+                            <div className="h-18 flex items-center">
                                 <div className="flex flex-col gap-2 w-full">
                                     <div className="flex gap-2">
                                         <DateInput
@@ -680,8 +642,12 @@ export const DateRangePicker: FC<DateRangePickerProps> & {
                                     )}
                                 </div>
                             </div>
-                            <div>
+                            <div className="flex justify-center sm:h-[22rem]">
                                 <Calendar
+                                    classNames={{
+                                        root: isMobile ? "w-full" : undefined,
+                                        months: isMobile ? "sm:flex-row" : undefined
+                                    }}
                                     mode="range"
                                     onSelect={(value: { from?: Date, to?: Date } | undefined) => {
                                         if (value?.from != null) {
@@ -689,11 +655,11 @@ export const DateRangePicker: FC<DateRangePickerProps> & {
                                         }
                                     }}
                                     selected={range}
-                                    numberOfMonths={isSmallScreen ? 1 : 2}
+                                    numberOfMonths={isMobile ? 1 : 2}
                                     defaultMonth={
                                         new Date(
                                             new Date().setMonth(
-                                                new Date().getMonth() - (isSmallScreen ? 0 : 1)
+                                                new Date().getMonth() - (isMobile ? 0 : 1)
                                             )
                                         )
                                     }
@@ -701,21 +667,31 @@ export const DateRangePicker: FC<DateRangePickerProps> & {
                             </div>
                         </div>
                     </div>
-                    <div className="max-w-[200px] overflow-x-auto ">
-                        <div className="flex flex-col gap-1 items-end">
+                    <div className="sm:max-w-[200px] overflow-x-auto ">
+                        <div className="flex flex-row sm:flex-col gap-1 items-end sm:pt-10 md:pt-0">
                             {PRESETS.map((preset) => (
-                                <PresetButton
+                                <Button
                                     key={preset.name}
-                                    preset={preset.name}
-                                    label={preset.label}
-                                    isSelected={selectedPreset === preset.name}
-                                />
+                                    className={cn(selectedPreset === preset.name && 'pointer-events-none')}
+                                    variant={selectedPreset === preset.name ? 'default' : isMobile ? 'outline' : 'ghost'}
+                                    size={isMobile ? 'default' : 'sm'}
+                                    onClick={() => {
+                                        setPreset(preset.name)
+                                    }}
+                                >
+                                    {!isMobile && (
+                                        <span className={cn('pr-2 opacity-0', selectedPreset === preset.name && 'opacity-70')}>
+                                            <CheckIcon width={18} height={18} />
+                                        </span>
+                                    )}
+                                    {preset.label}
+                                </Button>
                             ))}
 
                         </div>
                     </div>
                 </div>
-                {isSmallScreen ? (
+                {isTablet || isMobile ? (
                     <SheetFooter>
 
                         <div className="flex grow gap-2 w-full">
@@ -856,13 +832,14 @@ export const DateRangePicker: FC<DateRangePickerProps> & {
             </>
         )
 
-        if (isSmallScreen) {
+        if (isTablet || isMobile) {
             return (
                 <Sheet>
                     <SheetTrigger asChild>
                         {triggerContent}
                     </SheetTrigger>
-                    <SheetContent side="bottom">
+                    <SheetContent side="bottom" onOpenAutoFocus={(e) => e.preventDefault()} className="overflow-y-auto max-h-screen">
+                        <SheetTitle>Select Date Range</SheetTitle>
                         {popoverContent}
                     </SheetContent>
                 </Sheet>
