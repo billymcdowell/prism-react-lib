@@ -16,10 +16,16 @@ import {
   PromptInputTextarea,
 } from "@/components/ai/prompt-input"
 import { Reasoning, ReasoningContent, ReasoningTrigger } from "@/components/ai/reasoning"
+import { ResponseStream, useTextStream } from "@/components/ai/response-stream"
 import { ThinkingBar } from "@/components/ai/thinking-bar"
 import { Button } from "@/components/ui/button"
 import { Copy, Play, Send, Terminal } from "lucide-react"
 import { useState } from "react"
+
+function StreamingCode({ code }: { code: string }) {
+  const { displayedText } = useTextStream({ textStream: code, speed: 40 })
+  return <CodeBlockCode code={displayedText} language="tsx" />
+}
 
 export function CodeEditorLayout() {
   const [input, setInput] = useState("")
@@ -80,8 +86,7 @@ export function CodeEditorLayout() {
                 <Reasoning>
                   <ReasoningTrigger>Analyzed Request</ReasoningTrigger>
                   <ReasoningContent className="space-y-2">
-                    <p>The user requested a UI component.</p>
-                    <p>I will generate a JSX snippet using Tailwind CSS.</p>
+                    <ResponseStream textStream="The user requested a UI component. I will generate a JSX snippet using Tailwind CSS." />
                   </ReasoningContent>
                 </Reasoning>
                 
@@ -93,7 +98,7 @@ export function CodeEditorLayout() {
                     </Button>
                   </div>
                   <CodeBlock className="border-0 shadow-none">
-                    <CodeBlockCode code={generatedCode} language="tsx" />
+                    <StreamingCode code={generatedCode} />
                   </CodeBlock>
                 </div>
               </div>

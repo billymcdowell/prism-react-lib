@@ -44,12 +44,11 @@ const MessageAvatar = ({
   )
 }
 
-export type MessageContentProps = {
-  children: React.ReactNode
-  markdown?: boolean
-  className?: string
-} & React.ComponentProps<typeof Markdown> &
-  React.HTMLProps<HTMLDivElement>
+export type MessageContentProps = Omit<React.ComponentProps<typeof Markdown>, "children"> &
+  Omit<React.HTMLProps<HTMLDivElement>, "children"> & {
+    children: React.ReactNode
+    markdown?: boolean
+  }
 
 const MessageContent = ({
   children,

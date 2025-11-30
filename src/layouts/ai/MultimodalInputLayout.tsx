@@ -11,6 +11,7 @@ import {
   PromptInputActions,
   PromptInputTextarea,
 } from "@/components/ai/prompt-input"
+import { ResponseStream } from "@/components/ai/response-stream"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { ImageIcon, Paperclip, Send, UploadCloud } from "lucide-react"
@@ -69,9 +70,11 @@ export function MultimodalInputLayout() {
                    className="object-cover w-full h-full"
                  />
                </div>
-               <p className="text-sm text-muted-foreground">
-                 Analysis complete based on {files.length} file(s).
-               </p>
+               <div className="text-sm text-muted-foreground max-w-md mx-auto">
+                 <ResponseStream 
+                   textStream={`Analysis complete based on ${files.length} file(s). The image appears to contain a simulated landscape with geometric patterns.`} 
+                 />
+               </div>
             </div>
           ) : (
             <div className="text-center text-muted-foreground">

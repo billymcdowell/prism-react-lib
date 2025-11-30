@@ -11,6 +11,7 @@ import {
   PromptInputActions,
   PromptInputTextarea,
 } from "@/components/ai/prompt-input"
+import { ResponseStream } from "@/components/ai/response-stream"
 import { ScrollButton } from "@/components/ai/scroll-button"
 import { SystemMessage } from "@/components/ai/system-message"
 import { Button } from "@/components/ui/button"
@@ -88,7 +89,11 @@ export function ChatLayout() {
                     : "bg-secondary text-secondary-foreground"
                 }
               >
-                {message.content}
+                {message.role === "assistant" ? (
+                  <ResponseStream textStream={message.content} />
+                ) : (
+                  message.content
+                )}
               </MessageContent>
             </Message>
           ))}
