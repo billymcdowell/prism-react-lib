@@ -13,11 +13,10 @@ export type MessageAvatarProps = {
     className?: string;
 };
 declare const MessageAvatar: ({ src, alt, fallback, delayMs, className, }: MessageAvatarProps) => import("react/jsx-runtime").JSX.Element;
-export type MessageContentProps = {
+export type MessageContentProps = Omit<React.ComponentProps<typeof Markdown>, "children"> & Omit<React.HTMLProps<HTMLDivElement>, "children"> & {
     children: React.ReactNode;
     markdown?: boolean;
-    className?: string;
-} & React.ComponentProps<typeof Markdown> & React.HTMLProps<HTMLDivElement>;
+};
 declare const MessageContent: ({ children, markdown, className, ...props }: MessageContentProps) => import("react/jsx-runtime").JSX.Element;
 export type MessageActionsProps = {
     children: React.ReactNode;
