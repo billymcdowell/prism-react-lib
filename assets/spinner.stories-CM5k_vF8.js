@@ -1,3 +1,0 @@
-import{j as a}from"./jsx-runtime-u17CrQMm.js";import{c as s}from"./utils-CDN07tui.js";import{L as n}from"./loader-circle-BJ9bxJOf.js";function r({className:o,...t}){return a.jsx(n,{role:"status","aria-label":"Loading",className:s("size-4 animate-spin",o),...t})}r.__docgenInfo={description:"",methods:[],displayName:"Spinner"};const i={title:"UI/Spinner",component:r},e={args:{}};e.parameters={...e.parameters,docs:{...e.parameters?.docs,source:{originalSource:`{
-  args: {}
-}`,...e.parameters?.docs?.source}}};const c=["Default"],d=Object.freeze(Object.defineProperty({__proto__:null,Default:e,__namedExportsOrder:c,default:i},Symbol.toStringTag,{value:"Module"}));export{d as S};
