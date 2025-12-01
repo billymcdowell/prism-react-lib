@@ -5,17 +5,20 @@ import { resolve } from 'path';
 import dts from 'vite-plugin-dts';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js'
 const dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   plugins: [react(), tailwindcss(), dts({
     include: ['src'],
     exclude: ['src/**/*.stories.tsx', 'src/**/*.test.tsx']
-  })],
+  }),
+  cssInjectedByJsPlugin(),
+  ],
   build: {
     lib: {
       entry: resolve(dirname, 'src/index.ts'),
-      name: 'MyComponentLibrary',
+      name: 'prism-react-lib',
       formats: ['es', 'cjs'],
       fileName: format => `index.${format === 'es' ? 'mjs' : 'js'}`
     },

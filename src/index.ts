@@ -1,4 +1,4 @@
-// Export styles - users will need to import this
+// Import styles - automatically included when the library is imported
 import './styles.css'
 
 // Export all components

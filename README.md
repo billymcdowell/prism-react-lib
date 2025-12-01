@@ -18,15 +18,9 @@ pnpm add prism-react-lib
 
 ## Setup
 
-### 1. Import Styles
+The CSS styles are automatically included when you import the library. No additional setup is required!
 
-To use the components correctly, you must import the CSS file at the root of your application (e.g., in `main.tsx`, `App.tsx`, or `layout.tsx`):
-
-```tsx
-import 'prism-react-lib/styles.css';
-```
-
-### 2. Usage Example
+### Usage Example
 
 Import and use components in your React application:
 
