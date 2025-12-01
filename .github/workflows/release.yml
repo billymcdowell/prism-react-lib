@@ -1,0 +1,104 @@
+name: CI/CD Release
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    # Skip if the commit message contains [skip ci] to avoid infinite loops
+    if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Generate Changeset from Commits
+        run: |
+          # Check if .changeset directory has markdown files other than README.md
+          # If no changeset files exist, we generate one from the commit log to fulfill the requirement
+          # "add to the changelog the commit names"
+          if find .changeset -name "*.md" ! -name "README.md" | grep -q .; then
+             echo "Changeset files detected. Using existing."
+          else
+             echo "No changeset files found. Generating from commits..."
+             
+             # Get package name
+             PKG_NAME=$(node -p "require('./package.json').name")
+             
+             # Get commit messages since last tag or all if no tags
+             if git describe --tags --abbrev=0 >/dev/null 2>&1; then
+               LAST_TAG=$(git describe --tags --abbrev=0)
+               echo "Getting commits since $LAST_TAG"
+               LOGS=$(git log ${LAST_TAG}..HEAD --pretty=format:"- %s")
+             else
+               echo "No tags found. Getting all commits."
+               LOGS=$(git log --pretty=format:"- %s")
+             fi
+             
+             # Check if LOGS is not empty
+             if [ -n "$LOGS" ]; then
+                # Create changeset file with default 'patch' bump
+                echo "---" > .changeset/auto-generated.md
+                echo "\"$PKG_NAME\": patch" >> .changeset/auto-generated.md
+                echo "---" >> .changeset/auto-generated.md
+                echo "" >> .changeset/auto-generated.md
+                echo "Automated release based on commits:" >> .changeset/auto-generated.md
+                echo "$LOGS" >> .changeset/auto-generated.md
+                
+                echo "Created .changeset/auto-generated.md with content:"
+                cat .changeset/auto-generated.md
+             else
+                echo "No commits found to release."
+             fi
+          fi
+
+      - name: Version and Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          # 1. Version Packages (updates CHANGELOG.md and package.json using changesets)
+          npm run version-packages
+
+          # 2. Check for changes in package.json or CHANGELOG.md
+          if [[ `git status --porcelain` ]]; then
+            echo "Changes detected. Committing and publishing..."
+            
+            # Add changes to git
+            git add .
+            git commit -m "chore: update versions and changelog [skip ci]"
+            
+            # Push changes to master
+            git push origin master
+            
+            # 3. Release
+            # This uses the 'release' script from package.json: "npm run build && changeset publish"
+            # We define the NPM token for authentication
+            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+            npm run release
+          else
+            echo "No version changes detected. Skipping release."
+          fi
