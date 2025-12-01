@@ -25,6 +25,7 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Install Dependencies
         run: npm ci
@@ -75,7 +76,7 @@ jobs:
       - name: Version and Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
@@ -96,8 +97,7 @@ jobs:
             
             # 3. Release
             # This uses the 'release' script from package.json: "npm run build && changeset publish"
-            # We define the NPM token for authentication
-            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+            # Note: actions/setup-node configures .npmrc using NODE_AUTH_TOKEN
             npm run release
           else
             echo "No version changes detected. Skipping release."
