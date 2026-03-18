@@ -16,7 +16,7 @@
         "default": "./dist/index.js"
       }
     },
-    "./styles.css": "./dist/prism-react-lib.css"
+    "./styles.css": "./dist/styles.css"
   },
   "files": [
     "dist"
@@ -24,7 +24,7 @@
   "sideEffects": [
     "**/*.css",
     "./src/styles.css",
-    "./dist/prism-react-lib.css"
+    "./dist/styles.css"
   ],
   "scripts": {
     "dev": "vite",
@@ -35,8 +35,9 @@
     "build-storybook": "storybook build",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "npm run build && changeset publish",
-    "test": "vitest"
+    "release": "vitest run && npm run build && changeset publish",
+    "test:coverage": "vitest run --coverage",
+    "test": "vitest run"
   },
   "peerDependencies": {
     "react": "^19.2.0",
@@ -111,6 +112,7 @@
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.1",
+    "@vitest/coverage-v8": "^4.0.14",
     "eslint": "^9.39.1",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
