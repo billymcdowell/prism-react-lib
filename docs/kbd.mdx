@@ -1,0 +1,45 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../kbd.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Kbd
+
+<SectionHeader
+  title="Component Overview"
+  description="Displays a keyboard shortcut or key combination."
+/>
+
+Visual representation of a key on the keyboard.
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+1.  **Kbd**: The key container.
+2.  **KbdGroup**: Wrapper for multiple keys (e.g., Ctrl + C).
+
+## Design Specifications
+
+### Styling
+-   **Appearance**: Looks like a physical key (border, slight shadow/depth).
+-   **Font**: Monospace.
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Kbd component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Tooltips**: Show shortcuts in tooltips.
+    - **Command Menus**: Show shortcuts in command palettes.
+  </Dos>
+</Guidelines>
+
+### Code reference
+-   **Component**: `src/components/ui/kbd.tsx`
+-   **Storybook**: `src/stories/kbd.stories.tsx`
+-   **Version**: 1.0.0

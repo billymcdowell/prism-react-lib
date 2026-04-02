@@ -1,0 +1,68 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../hover-card.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Hover Card
+
+<SectionHeader
+  title="Component Overview"
+  description="For sighted users to preview content available behind a link."
+/>
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+![Anatomy Diagram Placeholder: Annotated diagram showing: 1. Trigger, 2. Content]
+
+1.  **HoverCard (Root)**: Wrapper.
+2.  **HoverCardTrigger**: The link or button that triggers the preview.
+3.  **HoverCardContent**: The popup content.
+
+## Behavior
+
+### Interaction patterns
+-   **Hover**: Opens after a short delay.
+-   **Focus**: Opens on focus.
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Hover Card component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Previews**: Use for user profiles, repo details, or glossary terms.
+    - **Metadata**: Show joined dates, follower counts, etc.
+  </Dos>
+  <Donts>
+    - **Critical Actions**: Put buttons inside a hover card that are necessary for the user flow (hard to reach).
+    - **Forms**: Put complex forms inside.
+  </Donts>
+</Guidelines>
+
+## Accessibility
+
+### Screen reader support
+-   **Role**: `tooltip` (technically, but behaves like a dialog for content).
+-   **Keyboard**: Users can Tab into the card if it remains open (Radix implementation ensures this).
+
+## Implementation Notes
+
+### Technical considerations
+-   Built using `@radix-ui/react-hover-card`.
+
+### Code reference
+-   **Component**: `src/components/ui/hover-card.tsx`
+-   **Storybook**: `src/stories/hover-card.stories.tsx`
+-   **Version**: 1.0.0
+
+## Related Components
+
+<FeatureList>
+-   **Tooltip**: For simple text labels.
+-   **Popover**: For interactive content triggered by click.
+</FeatureList>

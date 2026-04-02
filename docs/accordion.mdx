@@ -1,0 +1,194 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../accordion.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+ 
+<Meta of={Story} />
+
+# Accordion
+
+<SectionHeader
+  title="Component Overview"
+  description="The Accordion is a vertically stacked set of interactive headings that each reveal a section of content."
+/>
+
+It is primarily used to organize and group content, allowing users to toggle the visibility of sections to reduce visual clutter and focus on specific information.
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+![Anatomy Diagram Placeholder: Annotated diagram showing: 1. Accordion (Root Container), 2. AccordionItem (Section Container), 3. AccordionTrigger (Header/Button), 4. Chevron Icon, 5. AccordionContent (Panel)]
+
+1.  **Accordion (Root)**: The wrapper element that manages the state of the items (single or multiple open).
+2.  **AccordionItem**: A single collapsible section containing a header and content. Handles the bottom border styling.
+3.  **AccordionTrigger**: The interactive header that toggles the state of the associated item. Contains the section title and the chevron icon.
+4.  **AccordionContent**: The collapsible panel that holds the content. It animates its height when opening/closing.
+5.  **ChevronDownIcon**: Visual indicator of state (rotates 180 degrees when open).
+
+## Variants
+The Accordion supports functional variants based on the `type` prop:
+
+-   **Single (Default)**: Only one item can be open at a time. Opening another item closes the currently open one.
+    -   `type="single"`
+    -   `collapsible`: (Optional) Allows the user to close the currently open item.
+-   **Multiple**: Multiple items can be open simultaneously.
+    -   `type="multiple"`
+
+![Variant Comparison Placeholder: Side-by-side comparison of Single vs Multiple mode interaction]
+
+## States
+-   **Default (Closed)**: The content is hidden, chevron points down.
+-   **Hover**: The trigger text is underlined to indicate interactivity.
+-   **Focus**: The trigger receives a focus ring (`ring-ring/50`) and border change when navigated to via keyboard.
+-   **Open (Active)**: The content is visible, chevron points up (rotated 180deg).
+-   **Disabled**: Reduced opacity (50%) and pointer events are disabled.
+
+![States Grid Placeholder: Grid showing Default, Hover, Focus, Open, and Disabled states]
+
+## Behavior
+
+### Interaction patterns
+-   **Click/Tap**: Tapping the `AccordionTrigger` toggles the visibility of the `AccordionContent`.
+-   **Hover**: Hovering over the trigger applies a text underline style but does not trigger the expansion (unless customized).
+
+### Responsive behavior
+-   The Accordion expands to fill 100% of the width of its container.
+-   Content within `AccordionContent` should be responsive and adapt to the available width.
+
+### Animation/Transitions
+-   **Expand**: The content expands with `animate-accordion-down` (slide down and fade in).
+-   **Collapse**: The content collapses with `animate-accordion-up` (slide up and fade out).
+-   **Icon**: The chevron icon rotates 180 degrees with a smooth transition (`transition-all`).
+
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Accordion component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **FAQs**: Grouping questions and answers where users only need to see one answer at a time.
+    - **Complex Forms**: Breaking down long forms into manageable sections (e.g., shipping address, payment method).
+    - **Navigation**: Displaying nested menu items in a sidebar.
+    - **Progressive Disclosure**: Hiding secondary details that are not immediately necessary for the user's main task.
+  </Dos>
+  <Donts>
+    - Use for simple lists of items that do not require hiding content.
+    - Hide content that is critical and must be visible at all times without interaction.
+    - Use when comparing content across multiple sections simultaneously is the primary user task.
+  </Donts>
+</Guidelines>
+
+<Callout title="Comparison Note" variant="info">
+  If comparing content across multiple sections simultaneously is the primary user task, consider using `type="multiple"`, but even then, a side-by-side layout might be better.
+</Callout>
+
+## Accessibility
+
+### Keyboard navigation
+-   **Tab**: Moves focus to the next interactive element (the `AccordionTrigger`).
+-   **Space** or **Enter**: Toggles the collapsed/expanded state of the focused item.
+-   **Arrow Down**: Moves focus to the next accordion header.
+-   **Arrow Up**: Moves focus to the previous accordion header.
+-   **Home**: Moves focus to the first accordion header.
+-   **End**: Moves focus to the last accordion header.
+
+### Screen reader support
+-   **Roles**: The trigger has `role="button"` and is wrapped in a heading (e.g., `h3`) via `AccordionPrimitive.Header`. The content has `role="region"`.
+-   **ARIA States**:
+    -   `aria-expanded="true/false"` on the trigger indicates state.
+    -   `aria-controls` on the trigger points to the ID of the content region.
+    -   `aria-disabled` is set if the item is disabled.
+
+### WCAG compliance
+-   **2.1 AA**: Meets contrast ratios for text and icons (using standard `foreground` and `muted-foreground` colors).
+-   **Focus Visible**: Clearly visible focus styles (`ring-ring`) for keyboard users.
+-   **Touch Targets**: The trigger padding (`py-4`) ensures a large enough touch target (at least 44x44px equivalent).
+
+## Design Specifications
+
+### Spacing
+![Spacing Diagram Placeholder: Diagram showing padding py-4 on trigger, pb-4 on content, and gap-4 between text and icon]
+
+-   **Trigger Padding**: Vertical `1rem` (16px) (`py-4`).
+-   **Content Padding**: Bottom `1rem` (16px) (`pb-4`), Top `0`.
+-   **Icon Gap**: `1rem` (16px) (`gap-4`) between text and chevron.
+-   **Border**: 1px solid bottom border on `AccordionItem` (except last item).
+
+### Typography
+-   **Font Family**: Inherited (Sans-serif).
+-   **Font Size**: `text-sm` (0.875rem / 14px).
+-   **Font Weight**: `font-medium` (500).
+-   **Line Height**: `1.25rem` (20px).
+-   **Text Alignment**: Left aligned (`text-left`).
+
+### Colors
+![Color Swatches Placeholder: Swatches for Border, Background, Foreground, Muted Foreground, and Ring]
+
+-   **Background**: Transparent (inherits container).
+-   **Text**: `var(--foreground)` (oklch(0.15 0.03 280)).
+-   **Border**: `var(--border)` (oklch(0.92 0.01 280)).
+-   **Focus Ring**: `var(--ring)` (oklch(0.55 0.2 290)) at 50% opacity.
+-   **Icon**: Current text color (inherits).
+
+### Sizing
+-   **Width**: 100% of parent container.
+-   **Height**: Dynamic based on content.
+
+<SectionHeader
+  title="Content Guidelines"
+  description="Writing effective content for accordions."
+/>
+
+### Writing style
+-   **Headings**: Be concise and descriptive. Use sentence case (e.g., "Is it accessible?"). Avoid long questions that wrap to multiple lines if possible.
+-   **Content**: Keep answers brief and direct. If the answer is very long, consider linking to a full page.
+
+### Examples
+
+<Guidelines>
+  <Dos>
+    - Use for a "Frequently Asked Questions" section.
+    - Use to hide advanced settings options.
+  </Dos>
+  <Donts>
+    - Use for primary navigation where all options should be visible.
+    - Nest accordions inside accordions (can cause cognitive load issues).
+  </Donts>
+</Guidelines>
+
+## Implementation Notes
+
+### Technical considerations
+-   Built using `@radix-ui/react-accordion` for robust accessibility and state management.
+-   Requires `tailwindcss` and `tw-animate-css` for styling and animations.
+-   Dependencies: `lucide-react` for the chevron icon.
+
+### Code reference
+-   **Component**: `src/components/ui/accordion.tsx`
+-   **Storybook**: `src/stories/accordion.stories.tsx`
+-   **Version**: 1.0.0
+
+## Related Components
+
+<FeatureList>
+-   **Collapsible**: For simpler, single-element expand/collapse interactions without the grouped list behavior.
+-   **Sheet**: For larger amounts of content that slide in from the side.
+-   **ScrollArea**: For displaying long content within a fixed height container.
+</FeatureList>
+
+## Design Tokens Referenced
+-   **Color tokens**: `--border`, `--ring`, `--foreground`
+-   **Spacing tokens**: `p-4` (1rem)
+-   **Typography tokens**: `text-sm`, `font-medium`
+-   **Animation**: `animate-accordion-up`, `animate-accordion-down`
+
+## Changelog
+| Version | Date       | Changes         |
+| :------ | :--------- | :-------------- |
+| 1.0.0   | 2023-10-27 | Initial release |
+
+## Additional Resources
+-   [Radix UI Accordion Documentation](https://www.radix-ui.com/primitives/docs/components/accordion)

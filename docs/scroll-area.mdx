@@ -1,0 +1,54 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../scroll-area.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Scroll Area
+
+<SectionHeader
+  title="Component Overview"
+  description="Augments native scroll functionality for custom, cross-browser styling."
+/>
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+1.  **ScrollArea (Root)**: The wrapper.
+2.  **Viewport**: The scrollable window.
+3.  **ScrollBar**: The custom track/thumb.
+4.  **Corner**: Handles the intersection of two scrollbars.
+
+## Behavior
+
+### Interaction patterns
+-   **Scroll**: Works with wheel, touch, and drag.
+-   **Hover**: Scrollbars can appear on hover (optional).
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Scroll Area component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Navigation**: Use for sidebar navigation lists.
+    - **Code Blocks**: Use for long code snippets.
+  </Dos>
+  <Donts>
+    - **Global Scroll**: Replace the browser's main scrollbar (unless it's a full-screen app layout).
+  </Donts>
+</Guidelines>
+
+## Implementation Notes
+
+### Technical considerations
+-   Built using `@radix-ui/react-scroll-area`.
+-   Hides native scrollbars while preserving functionality.
+
+### Code reference
+-   **Component**: `src/components/ui/scroll-area.tsx`
+-   **Storybook**: `src/stories/scroll-area.stories.tsx`
+-   **Version**: 1.0.0

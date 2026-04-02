@@ -1,0 +1,55 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../table.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Table
+
+<SectionHeader
+  title="Component Overview"
+  description="A responsive table component."
+/>
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+1.  **Table (Root)**: Wrapper.
+2.  **TableHeader**: `thead`.
+3.  **TableBody**: `tbody`.
+4.  **TableFooter**: `tfoot`.
+5.  **TableRow**: `tr`.
+6.  **TableHead**: `th`.
+7.  **TableCell**: `td`.
+8.  **TableCaption**: `caption`.
+
+## Behavior
+
+### Responsive behavior
+-   **Scroll**: Wrapped in a container that allows horizontal scrolling on small screens.
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Table component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Tabular Data**: Use for lists of data with multiple columns.
+    - **Alignment**: Align text left, numbers right.
+  </Dos>
+</Guidelines>
+
+## Accessibility
+
+### Screen reader support
+-   **Role**: Uses native HTML table roles (which are accessible by default).
+
+## Implementation Notes
+
+### Code reference
+-   **Component**: `src/components/ui/table.tsx`
+-   **Storybook**: `src/stories/table.stories.tsx`
+-   **Version**: 1.0.0

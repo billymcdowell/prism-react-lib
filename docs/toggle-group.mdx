@@ -1,0 +1,79 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as ToggleGroupStories from '../toggle-group.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={ToggleGroupStories} />
+
+# Toggle Group
+
+<SectionHeader
+  title="Component Overview"
+  description="A set of two-state buttons that can be toggled on or off."
+/>
+
+Toggle Groups are used to group related options where users can select one or multiple items. They share a common container and styling.
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+
+1.  **ToggleGroup (Root)**: Container for the items.
+2.  **ToggleGroupItem**: Individual toggle button.
+
+## Variants
+-   **Type**:
+    -   `single`: Only one item can be selected at a time (like radio buttons).
+    -   `multiple`: Multiple items can be selected (like checkboxes).
+-   **Variant**: `default` (transparent/ghost), `outline` (bordered).
+-   **Size**: `sm`, `default`, `lg`.
+
+## States
+-   **Off**: Default state.
+-   **On**: Active state (different background/color).
+-   **Disabled**: Non-interactive.
+
+## Usage Guidelines
+
+<Guidelines>
+  <Dos>
+    - Use for switching between different views or modes (e.g., List vs. Grid view).
+    - Use for text formatting options (Bold, Italic, Underline).
+    - Use for filtering lists.
+  </Dos>
+  <Donts>
+    - Use for primary navigation.
+    - Use when the options are not closely related.
+  </Donts>
+</Guidelines>
+
+## Accessibility
+
+### Keyboard navigation
+-   **Arrow Keys**: Navigate between items in the group.
+-   **Space/Enter**: Toggles the selection state of the focused item.
+
+### Screen reader support
+-   **Roles**: `role="group"` or `role="radiogroup"` (for single selection).
+-   **State**: `aria-pressed` or `aria-checked` indicates selection.
+
+## Implementation Notes
+
+### Technical considerations
+-   Built using `@radix-ui/react-toggle-group`.
+-   Shares styles with the `Toggle` component.
+
+### Code reference
+-   **Component**: `src/components/ui/toggle-group.tsx`
+-   **Storybook**: `src/stories/toggle-group.stories.tsx`
+-   **Dependencies**: `@radix-ui/react-toggle-group`
+
+## Related Components
+
+<FeatureList>
+-   **Toggle**: Single toggle button.
+-   **RadioGroup**: For single selection from a list (form context).
+-   **Tabs**: For switching views.
+</FeatureList>
+

@@ -1,0 +1,72 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../command.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Command
+
+<SectionHeader
+  title="Component Overview"
+  description="Fast, composable, unstyled command menu for React."
+/>
+
+A command palette or combobox component, often used for global search or command execution (Cmd+K).
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+![Anatomy Diagram Placeholder: Annotated diagram showing: 1. Dialog/Wrapper, 2. Input, 3. List, 4. Group, 5. Item, 6. Shortcut]
+
+1.  **Command (Root)**: The container.
+2.  **CommandInput**: The search field.
+3.  **CommandList**: Scrollable list of results.
+4.  **CommandGroup**: Grouping for items.
+5.  **CommandItem**: Selectable result.
+6.  **CommandShortcut**: Keyboard shortcut hint (e.g., ⌘K).
+
+## Behavior
+
+### Interaction patterns
+-   **Filtering**: As the user types, the list filters automatically based on `value`.
+-   **Selection**: Enter or Click selects an item.
+-   **Navigation**: Up/Down arrows navigate the list.
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Command component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Global Search**: Use for "Spotlight"-style search.
+    - **Combobox**: Use for selecting from a large list of options in a form.
+    - **Keyboard First**: Design for keyboard users primarily.
+  </Dos>
+</Guidelines>
+
+## Accessibility
+
+### Screen reader support
+-   **Role**: `combobox`.
+-   **ARIA**: Automatically manages `aria-expanded`, `aria-controls`, `aria-activedescendant`.
+
+## Implementation Notes
+
+### Technical considerations
+-   Built using `cmdk` (by pacocoursey).
+-   Can be used inside a `Dialog` (`CommandDialog`) for modal behavior.
+
+### Code reference
+-   **Component**: `src/components/ui/command.tsx`
+-   **Storybook**: `src/stories/command.stories.tsx`
+-   **Version**: 1.0.0
+
+## Related Components
+
+<FeatureList>
+-   **Dialog**: The modal wrapper often used with Command.
+-   **Popover**: Used for combobox-style implementations.
+</FeatureList>

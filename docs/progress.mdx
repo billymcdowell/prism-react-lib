@@ -1,0 +1,56 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../progress.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Progress
+
+<SectionHeader
+  title="Component Overview"
+  description="Displays an indicator showing the completion progress of a task."
+/>
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+1.  **Progress (Root)**: The track (background).
+2.  **Indicator**: The filled portion (foreground).
+
+## Behavior
+
+### Animation
+-   The width of the indicator animates smoothly when the value changes.
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Progress component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Deterministic**: Use when the progress value is known (0-100%).
+    - **Loading**: Use for file uploads or long processes.
+  </Dos>
+  <Donts>
+    - Use for indeterminate loading (use Spinner/Skeleton).
+  </Donts>
+</Guidelines>
+
+## Accessibility
+
+### Screen reader support
+-   **Role**: `progressbar`.
+-   **Value**: `aria-valuenow`, `aria-valuemin`, `aria-valuemax`.
+
+## Implementation Notes
+
+### Technical considerations
+-   Built using `@radix-ui/react-progress`.
+
+### Code reference
+-   **Component**: `src/components/ui/progress.tsx`
+-   **Storybook**: `src/stories/progress.stories.tsx`
+-   **Version**: 1.0.0

@@ -1,0 +1,92 @@
+import { Meta, Story } from "@storybook/addon-docs/blocks";
+import * as ComponentHeroStories from '../examples/apps/sticker-sheet.stories.tsx';
+
+<Meta title="Introduction" />
+
+# Prism React Lib
+
+A modern, accessible, and beautiful React component library built with TypeScript and Tailwind CSS.
+
+<Story of={ComponentHeroStories.StickerSheetExample} />
+
+## Features
+
+- 🎨 **Modern Design**: Beautifully designed components out of the box.
+- 🌙 **Dark Mode**: Built-in dark mode support using standard CSS variables.
+- ♿ **Accessible**: Built on top of Radix UI primitives for robustness and accessibility.
+- 🔧 **TypeScript**: Fully typed for excellent developer experience.
+- ⚡ **Vite & Tailwind**: Optimized for performance.
+
+## Docs for building production UIs
+
+For installation, **token-first Tailwind** usage, overlay and form decisions, and a full **when-to-use** catalog of components, see the **[Production UI skill](https://billymcdowell.github.io/prism-react-lib/?path=/docs/documentation-production-ui-skill--docs)** (also shipped as `src/stories/docs/SKILL.md` for agent tools). For LLMs and scripts, the same folder is served under **`/docs/`** (Storybook `staticDirs`); see **`/docs/index.json`** for a manifest (e.g. [`/docs/button.mdx`](https://billymcdowell.github.io/prism-react-lib/docs/button.mdx)).
+
+## Installation
+
+Install the package using your preferred package manager:
+
+```bash
+npm install prism-react-lib
+# or
+yarn add prism-react-lib
+# or
+pnpm add prism-react-lib
+```
+
+## Setup
+
+The CSS styles are automatically included when you import the library. No additional setup is required!
+
+### Usage Example
+
+Import and use components in your React application:
+
+```tsx
+import { Button, Card, CardHeader, CardTitle, CardContent } from 'prism-react-lib';
+
+function App() {
+  return (
+    <div className="p-4">
+      <Card className="w-[350px]">
+        <CardHeader>
+          <CardTitle>Create Project</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <Button>Deploy</Button>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+```
+
+## Components
+
+This library includes a comprehensive set of UI components:
+
+- **Core**: Button, Badge, Card, Separator, Skeleton
+- **Inputs**: Input, Textarea, Checkbox, RadioGroup, Select, Switch, Slider, Form
+- **Feedback**: Alert, Progress, Spinner, Sonner (Toast), Tooltip
+- **Overlay**: Dialog, Drawer, Sheet, Popover, AlertDialog, ContextMenu, DropdownMenu
+- **Navigation**: Breadcrumb, Menubar, NavigationMenu, Pagination, Tabs, Sidebar
+- **Data Display**: Avatar, Table, Calendar, Chart, Carousel, Accordion, ScrollArea
+- **Layout**: AspectRatio, Resizable, Collapsible
+
+## Theming
+
+The library uses CSS variables (oklch color space) for theming. You can customize the look and feel by overriding these variables in your global CSS.
+
+```css
+:root {
+  /* Override primary color */
+  --primary: oklch(0.4 0.15 250);
+  --primary-foreground: oklch(1 0 0);
+  
+  /* Override radius */
+  --radius: 0.5rem;
+}
+```
+
+---
+
+*Note: This library is currently in development (v0.0.2).*

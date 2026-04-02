@@ -1,0 +1,88 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../carousel.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Carousel
+
+<SectionHeader
+  title="Component Overview"
+  description="A carousel with motion and swipe built using Embla."
+/>
+
+A slideshow component for cycling through elements like images or cards.
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+![Anatomy Diagram Placeholder: Annotated diagram showing: 1. Carousel (Root), 2. Content, 3. Item, 4. Previous, 5. Next]
+
+1.  **Carousel (Root)**: The wrapper that provides context.
+2.  **CarouselContent**: The container moving the slides.
+3.  **CarouselItem**: The individual slide container.
+4.  **CarouselPrevious**: Button to go back.
+5.  **CarouselNext**: Button to go forward.
+
+## Variants
+-   **Horizontal**: Slides move left/right (Default).
+-   **Vertical**: Slides move up/down (`orientation="vertical"`).
+
+## States
+-   **Active**: The current slide is visible.
+-   **Disabled Buttons**: Navigation buttons are disabled at the start/end of the list (unless looping).
+
+## Behavior
+
+### Interaction patterns
+-   **Swipe**: Supports touch swipe on mobile.
+-   **Keyboard**: Arrow keys navigate slides when focused.
+-   **Click**: Buttons navigate slides.
+
+### Responsive behavior
+-   **Basis**: `CarouselItem` width is controlled via `basis-full` (1 item), `basis-1/2` (2 items), etc., usually responsive (e.g., `md:basis-1/3`).
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Carousel component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Galleries**: Use for image galleries.
+    - **Featured Content**: Use for hero sections with multiple highlights.
+  </Dos>
+  <Donts>
+    - Auto-play without user control (accessibility issue).
+    - Hide critical content solely inside a carousel (users might miss it).
+  </Donts>
+</Guidelines>
+
+## Accessibility
+
+### Keyboard navigation
+-   **Arrow Keys**: Left/Right (or Up/Down) to navigate.
+
+### Screen reader support
+-   **Role**: `region` with `aria-roledescription="carousel"`.
+-   **Items**: `role="group"` with `aria-roledescription="slide"`.
+-   **Buttons**: Labeled "Previous slide" and "Next slide" via `sr-only` text.
+
+## Implementation Notes
+
+### Technical considerations
+-   Built using `embla-carousel-react`.
+-   Highly performant and touch-friendly.
+
+### Code reference
+-   **Component**: `src/components/ui/carousel.tsx`
+-   **Storybook**: `src/stories/carousel.stories.tsx`
+-   **Version**: 1.0.0
+
+## Related Components
+
+<FeatureList>
+-   **ScrollArea**: For continuous scrolling content.
+</FeatureList>

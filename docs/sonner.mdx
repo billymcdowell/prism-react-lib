@@ -1,0 +1,54 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../sonner.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Sonner
+
+<SectionHeader
+  title="Component Overview"
+  description="An opinionated toast component for React."
+/>
+
+Displays temporary notifications.
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+1.  **Toaster**: The provider/viewport (usually at the root).
+2.  **Toast**: The individual notification card.
+
+## Behavior
+
+### Interaction patterns
+-   **Auto-dismiss**: Disappears after a duration (default 4s).
+-   **Swipe**: Can swipe to dismiss.
+-   **Action**: Can contain an action button.
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Sonner component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Feedback**: Use for success/error feedback after an action.
+    - **Undo**: Provide an "Undo" action for destructive operations.
+  </Dos>
+  <Donts>
+    - **Critical Info**: Hide critical information that the user must acknowledge (use Alert Dialog).
+  </Donts>
+</Guidelines>
+
+## Implementation Notes
+
+### Technical considerations
+-   Built using `sonner` (by emilkowalski).
+
+### Code reference
+-   **Component**: `src/components/ui/sonner.tsx`
+-   **Storybook**: `src/stories/sonner.stories.tsx`
+-   **Version**: 1.0.0

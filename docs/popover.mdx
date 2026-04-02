@@ -1,0 +1,73 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../popover.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Popover
+
+<SectionHeader
+  title="Component Overview"
+  description="Displays rich content in a portal, triggered by a button."
+/>
+
+Used for small overlays that are not modal (don't block the rest of the UI).
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+![Anatomy Diagram Placeholder: Annotated diagram showing: 1. Trigger, 2. Content, 3. Anchor]
+
+1.  **Popover (Root)**: State manager.
+2.  **PopoverTrigger**: Button.
+3.  **PopoverContent**: Overlay content.
+4.  **PopoverAnchor**: Optional positioning anchor.
+
+## Behavior
+
+### Interaction patterns
+-   **Click**: Toggles open/closed.
+-   **Click Outside**: Closes the popover.
+-   **Focus**: Focus moves into the popover (unlike Tooltip).
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Popover component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Filters**: Use for complex filter forms.
+    - **Color Pickers**: Use for small interactive tools.
+    - **Date Pickers**: Standard container for calendars.
+  </Dos>
+  <Donts>
+    - **Critical Info**: Hide critical info in popovers.
+    - **Large Content**: Use for large amounts of content (use Dialog/Sheet).
+  </Donts>
+</Guidelines>
+
+## Accessibility
+
+### Screen reader support
+-   **Role**: `dialog`.
+-   **Focus**: Traps focus while open (usually).
+
+## Implementation Notes
+
+### Technical considerations
+-   Built using `@radix-ui/react-popover`.
+
+### Code reference
+-   **Component**: `src/components/ui/popover.tsx`
+-   **Storybook**: `src/stories/popover.stories.tsx`
+-   **Version**: 1.0.0
+
+## Related Components
+
+<FeatureList>
+-   **Tooltip**: For hover-only text.
+-   **Dialog**: For modal overlays.
+</FeatureList>

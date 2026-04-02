@@ -1,0 +1,114 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../breadcrumb.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Breadcrumb
+
+<SectionHeader
+  title="Component Overview"
+  description="Displays the path to the current resource using a hierarchy of links."
+/>
+
+Breadcrumbs indicate the current page's location within a navigational hierarchy that automatically adds separators via CSS.
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+![Anatomy Diagram Placeholder: Annotated diagram showing: 1. Breadcrumb (Root), 2. List, 3. Item, 4. Link, 5. Page, 6. Separator, 7. Ellipsis]
+
+1.  **Breadcrumb (Root)**: The navigation wrapper (`nav`).
+2.  **BreadcrumbList**: The ordered list container (`ol`).
+3.  **BreadcrumbItem**: A single item (`li`) in the breadcrumb trail.
+4.  **BreadcrumbLink**: An interactive link (`a`) to a parent page.
+5.  **BreadcrumbPage**: The current page indicator (`span`), typically non-interactive.
+6.  **BreadcrumbSeparator**: Visual separator between items (Chevron or Slash).
+7.  **BreadcrumbEllipsis**: Visual indicator for hidden items in long paths.
+
+## Variants
+-   **Default**: Standard layout with chevron separators.
+-   **Custom Separator**: Can use different icons (Slash, Arrow).
+-   **Dropdown**: Can contain a dropdown menu for collapsed items.
+
+## States
+-   **Default**: Link color is muted/foreground.
+-   **Hover**: Links darken or underline on hover.
+-   **Current**: The last item represents the current page and is usually styled differently (bold, non-interactive).
+
+## Behavior
+
+### Interaction patterns
+-   **Click**: Navigates to the parent page.
+-   **Collapse**: On mobile or deep hierarchies, intermediate items can be collapsed into an ellipsis or dropdown.
+
+### Responsive behavior
+-   Items should wrap or collapse on smaller screens.
+-   `BreadcrumbEllipsis` is often used to hide middle items.
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Breadcrumb component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Deep Hierarchies**: Use when the website structure is more than two levels deep.
+    - **Secondary Navigation**: Use as a secondary navigation aid, not as a replacement for the primary menu.
+    - **Location**: Place at the top left of the content area.
+  </Dos>
+  <Donts>
+    - Use for single-level websites.
+    - Make the current page a link (it should be static text).
+    - Use extremely long text labels (truncate if necessary).
+  </Donts>
+</Guidelines>
+
+## Accessibility
+
+### Screen reader support
+-   **Role**: `navigation` (Root).
+-   **Label**: `aria-label="breadcrumb"`.
+-   **Current Item**: `aria-current="page"` on the last item (`BreadcrumbPage`).
+-   **Separator**: `aria-hidden="true"` to avoid noise.
+
+### Keyboard navigation
+-   **Tab**: Focuses on the links in order.
+
+## Design Specifications
+
+### Typography
+-   **Size**: `text-sm`.
+-   **Color**: `text-muted-foreground` for links, `text-foreground` for current page.
+
+### Spacing
+-   **Gap**: `gap-1.5` to `gap-2.5` depending on screen size.
+
+<SectionHeader
+  title="Content Guidelines"
+  description="Writing effective content for breadcrumbs."
+/>
+
+### Writing style
+-   **Short Labels**: Use short, descriptive labels.
+-   **Match Title**: Labels should match the page title they link to.
+
+## Implementation Notes
+
+### Technical considerations
+-   Built using standard HTML ordered lists (`ol`, `li`).
+-   Slots based architecture for flexibility.
+
+### Code reference
+-   **Component**: `src/components/ui/breadcrumb.tsx`
+-   **Storybook**: `src/stories/breadcrumb.stories.tsx`
+-   **Version**: 1.0.0
+
+## Related Components
+
+<FeatureList>
+-   **Sidebar**: Primary navigation structure.
+-   **Menubar**: Top-level navigation.
+</FeatureList>

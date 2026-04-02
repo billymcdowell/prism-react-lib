@@ -1,0 +1,72 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../select.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Select
+
+<SectionHeader
+  title="Component Overview"
+  description="Displays a list of options for the user to pick from—triggered by a button."
+/>
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+![Anatomy Diagram Placeholder: Annotated diagram showing: 1. Trigger, 2. Value, 3. Content, 4. Item, 5. Group, 6. Label]
+
+1.  **Select (Root)**: State manager.
+2.  **SelectTrigger**: The button displaying the value.
+3.  **SelectValue**: The selected text.
+4.  **SelectContent**: The dropdown list.
+5.  **SelectItem**: Selectable option.
+6.  **SelectGroup**: Grouping wrapper.
+7.  **SelectLabel**: Group header.
+
+## Behavior
+
+### Interaction patterns
+-   **Click**: Opens the list.
+-   **Type**: Typing filters/highlights items.
+-   **Arrow Keys**: Navigate items.
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Select component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Many Options**: Use when there are more than 5 options (space saving).
+    - **Forms**: Standard input for forms.
+  </Dos>
+  <Donts>
+    - **Few Options**: Use for < 3 options (use Radio Group or Toggle Group).
+  </Donts>
+</Guidelines>
+
+## Accessibility
+
+### Screen reader support
+-   **Role**: `combobox` or `listbox`.
+-   **Value**: Announces selected value.
+
+## Implementation Notes
+
+### Technical considerations
+-   Built using `@radix-ui/react-select`.
+
+### Code reference
+-   **Component**: `src/components/ui/select.tsx`
+-   **Storybook**: `src/stories/select.stories.tsx`
+-   **Version**: 1.0.0
+
+## Related Components
+
+<FeatureList>
+-   **Command**: For searchable lists (Select is usually not searchable by text input).
+-   **DropdownMenu**: For actions, not value selection.
+</FeatureList>

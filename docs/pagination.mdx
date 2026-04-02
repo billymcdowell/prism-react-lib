@@ -1,0 +1,63 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../pagination.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Pagination
+
+<SectionHeader
+  title="Component Overview"
+  description="Pagination with page numbers, previous/next, and truncation."
+/>
+
+Allows users to navigate through large sets of data split into pages.
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+![Anatomy Diagram Placeholder: Annotated diagram showing: 1. Previous, 2. Numbers, 3. Ellipsis, 4. Next]
+
+1.  **Pagination (Root)**: Nav wrapper.
+2.  **PaginationContent**: List wrapper.
+3.  **PaginationItem**: List item.
+4.  **PaginationLink**: Page number button.
+5.  **PaginationPrevious/Next**: Navigation buttons.
+6.  **PaginationEllipsis**: Truncation indicator.
+
+## Behavior
+
+### Interaction patterns
+-   **Click**: Navigates to the selected page.
+-   **Disabled**: Previous/Next are disabled at boundaries.
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Pagination component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Large Lists**: Use when data exceeds 20-50 items.
+    - **Current Page**: Clearly indicate the current page.
+  </Dos>
+  <Donts>
+    - Use for infinite scroll (unless as a fallback).
+  </Donts>
+</Guidelines>
+
+## Accessibility
+
+### Screen reader support
+-   **Role**: `navigation`.
+-   **Label**: `aria-label="pagination"`.
+-   **Current**: `aria-current="page"` on the active link.
+
+## Implementation Notes
+
+### Code reference
+-   **Component**: `src/components/ui/pagination.tsx`
+-   **Storybook**: `src/stories/pagination.stories.tsx`
+-   **Version**: 1.0.0

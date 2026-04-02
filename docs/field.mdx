@@ -1,0 +1,61 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../field.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Field
+
+<SectionHeader
+  title="Component Overview"
+  description="A flexible container for form fields, labels, and helper text."
+/>
+
+Provides a consistent structure for inputs, labels, descriptions, and error messages.
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+![Anatomy Diagram Placeholder: Annotated diagram showing: 1. Field (Wrapper), 2. Label, 3. Content (Input), 4. Description, 5. Error]
+
+1.  **Field (Root)**: Flex container.
+2.  **FieldLabel**: Accessible label.
+3.  **FieldContent**: Wrapper for the input component.
+4.  **FieldDescription**: Helper text.
+5.  **FieldError**: Validation error message.
+
+## Variants
+-   **Vertical**: Stacked label, input, description (Default).
+-   **Horizontal**: Label and input side-by-side (Switch, Checkbox).
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Field component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Wrap Inputs**: Use to wrap every form input for consistency.
+    - **Error Handling**: Use `FieldError` to display validation messages.
+  </Dos>
+</Guidelines>
+
+## Implementation Notes
+
+### Technical considerations
+-   Composable architecture.
+-   Uses `cva` for orientation styles.
+
+### Code reference
+-   **Component**: `src/components/ui/field.tsx`
+-   **Storybook**: `src/stories/field.stories.tsx`
+-   **Version**: 1.0.0
+
+## Related Components
+
+<FeatureList>
+-   **Form**: Higher-level abstraction using React Hook Form.
+-   **Label**: The label primitive.
+</FeatureList>

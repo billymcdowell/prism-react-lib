@@ -1,0 +1,83 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as ToggleStories from '../toggle.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={ToggleStories} />
+
+# Toggle
+
+<SectionHeader
+  title="Component Overview"
+  description="A two-state button that can be either on or off."
+/>
+
+A toggle allows users to switch between two states, such as "on/off" or "active/inactive". It is similar to a checkbox but styled as a button.
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+
+1.  **Toggle**: The clickable button element.
+2.  **Icon/Label**: Content indicating the function (e.g., "B" for bold, or a star icon).
+
+## Variants
+-   **Variant**:
+    -   `default`: Ghost style, background appears on hover/active.
+    -   `outline`: Bordered style.
+-   **Size**: `sm`, `default`, `lg`.
+
+## States
+-   **Off**: Default styling.
+-   **On (Pressed)**: Distinct background color (`bg-accent`) to show activation.
+-   **Disabled**: Reduced opacity, non-interactive.
+-   **Hover**: Slight background change to indicate interactivity.
+
+## Usage Guidelines
+
+<Guidelines>
+  <Dos>
+    - Use for applying state or preferences (e.g., "Like", "Bookmark", "Bold text").
+    - Use icons for common actions where the meaning is clear.
+  </Dos>
+  <Donts>
+    - Use for immediate actions that don't have a persistent state (use `Button` instead).
+    - Use text labels that change based on state (e.g., "Turn On" -> "Turn Off"). The button state itself should indicate the status.
+  </Donts>
+</Guidelines>
+
+## Accessibility
+
+### Keyboard navigation
+-   **Space/Enter**: Toggles the state.
+
+### Screen reader support
+-   **Role**: `button`.
+-   **State**: `aria-pressed="true"` when active, `aria-pressed="false"` when inactive.
+-   Ensure `aria-label` is provided if the toggle only contains an icon.
+
+## Design Specifications
+
+### Colors
+-   **Active Background**: `bg-accent`.
+-   **Active Text**: `text-accent-foreground`.
+
+## Implementation Notes
+
+### Technical considerations
+-   Built using `@radix-ui/react-toggle`.
+
+### Code reference
+-   **Component**: `src/components/ui/toggle.tsx`
+-   **Storybook**: `src/stories/toggle.stories.tsx`
+-   **Dependencies**: `@radix-ui/react-toggle`
+
+## Related Components
+
+<FeatureList>
+-   **ToggleGroup**: For managing multiple toggles.
+-   **Button**: For stateless actions.
+-   **Switch**: For explicit on/off settings (usually in a list).
+</FeatureList>
+

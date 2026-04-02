@@ -1,0 +1,88 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../chart.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Chart
+
+<SectionHeader
+  title="Component Overview"
+  description="Beautiful charts built with Recharts."
+/>
+
+A collection of chart components for data visualization, styled to match the design system.
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+![Anatomy Diagram Placeholder: Annotated diagram showing: 1. Container, 2. Grid, 3. Axis, 4. Tooltip, 5. Legend, 6. Data Series]
+
+1.  **ChartContainer**: Handles sizing, themes, and responsiveness.
+2.  **ChartTooltip**: Custom tooltip rendering.
+3.  **ChartLegend**: Custom legend rendering.
+4.  **Recharts Components**: `BarChart`, `LineChart`, `PieChart`, etc.
+
+## Variants
+Supports all standard Recharts types:
+-   **Bar**: Comparison across categories.
+-   **Line**: Trends over time.
+-   **Pie/Donut**: Part-to-whole relationships.
+-   **Area**: Volume trends.
+-   **Radar**: Multi-variable comparison.
+
+## States
+-   **Loading**: Skeleton state (manual implementation required).
+-   **Empty**: No data state.
+-   **Hover**: Interacting with data points shows tooltips.
+
+## Behavior
+
+### Interaction patterns
+-   **Hover**: Reveals detailed data in a tooltip.
+-   **Legend Click**: Can filter series (depending on implementation).
+
+### Responsive behavior
+-   **ResponsiveContainer**: Charts automatically resize to fit their container width.
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use Charts."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Simplicity**: Keep charts simple and easy to read.
+    - **Color**: Use consistent colors for categories across charts.
+    - **Tooltips**: Provide precise values on hover.
+  </Dos>
+  <Donts>
+    - Overload a single chart with too many series.
+    - Use 3D effects (harder to read).
+  </Donts>
+</Guidelines>
+
+## Accessibility
+
+### Screen reader support
+-   **Alt Text**: Charts should have a description or title.
+-   **Data Table**: Complex charts should provide a tabular data alternative for screen readers.
+
+## Design Specifications
+
+### Colors
+-   **Theme Aware**: Uses CSS variables (`--color-1`, etc.) mapped to design tokens, supporting Dark Mode automatically.
+
+## Implementation Notes
+
+### Technical considerations
+-   Built using `recharts`.
+-   Configuration object (`ChartConfig`) maps data keys to labels and colors.
+-   Uses `dangerouslySetInnerHTML` for dynamic style injection of theme colors.
+
+### Code reference
+-   **Component**: `src/components/ui/chart.tsx`
+-   **Storybook**: `src/stories/chart.stories.tsx`
+-   **Version**: 1.0.0

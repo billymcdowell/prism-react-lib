@@ -1,0 +1,61 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../input-group.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Input Group
+
+<SectionHeader
+  title="Component Overview"
+  description="Group input controls with add-ons, buttons, or text."
+/>
+
+Allows prepending or appending elements to an Input to provide context or actions.
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+![Anatomy Diagram Placeholder: Annotated diagram showing: 1. Group, 2. Addon (Text/Icon), 3. Input]
+
+1.  **InputGroup**: The container.
+2.  **InputGroupAddon**: Container for side elements.
+3.  **InputGroupInput**: The input field itself.
+4.  **InputGroupText**: Static text (e.g., "https://").
+5.  **InputGroupButton**: Action button (e.g., "Copy").
+
+## Variants
+-   **Start**: Addon at the start.
+-   **End**: Addon at the end.
+-   **Both**: Addons on both sides.
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Input Group component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Units**: Show currency symbols or units ($, kg).
+    - **URLs**: Show protocols (https://).
+    - **Search**: Add a search icon button.
+  </Dos>
+</Guidelines>
+
+## Implementation Notes
+
+### Technical considerations
+-   Uses `focus-within` CSS pseudo-class to highlight the entire group when the input is focused.
+
+### Code reference
+-   **Component**: `src/components/ui/input-group.tsx`
+-   **Storybook**: `src/stories/input-group.stories.tsx`
+-   **Version**: 1.0.0
+
+## Related Components
+
+<FeatureList>
+-   **Input**: The standard input.
+</FeatureList>

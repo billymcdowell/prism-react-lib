@@ -1,0 +1,74 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../dialog.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Dialog
+
+<SectionHeader
+  title="Component Overview"
+  description="A window overlaid on either the primary window or another dialog window, rendering the content underneath inert."
+/>
+
+Often called a Modal.
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+![Anatomy Diagram Placeholder: Annotated diagram showing: 1. Overlay, 2. Content, 3. Close Button, 4. Header, 5. Footer]
+
+1.  **Dialog (Root)**: State manager.
+2.  **DialogTrigger**: Button to open.
+3.  **DialogOverlay**: Dimmed background.
+4.  **DialogContent**: The modal container.
+5.  **DialogHeader/Footer**: Layout helpers for title and actions.
+6.  **DialogClose**: Close button (X).
+
+## Behavior
+
+### Interaction patterns
+-   **Focus Trap**: Focus is trapped within the dialog while open.
+-   **Scroll Lock**: Background scrolling is disabled.
+-   **Dismiss**: Esc key or clicking overlay closes the dialog.
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Dialog component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Focused Tasks**: Use for forms, confirmations, or critical information requiring attention.
+    - **Simplicity**: Keep dialog content simple.
+  </Dos>
+  <Donts>
+    - **Nested Dialogs**: Avoid nesting dialogs (use a step-by-step wizard or a new page).
+    - **Full Pages**: Don't put an entire page's worth of content in a dialog (use a Sheet/Drawer).
+  </Donts>
+</Guidelines>
+
+## Accessibility
+
+### Screen reader support
+-   **Role**: `dialog`.
+-   **Label**: `aria-labelledby` points to `DialogTitle`. `aria-describedby` points to `DialogDescription`.
+
+## Implementation Notes
+
+### Technical considerations
+-   Built using `@radix-ui/react-dialog`.
+
+### Code reference
+-   **Component**: `src/components/ui/dialog.tsx`
+-   **Storybook**: `src/stories/dialog.stories.tsx`
+-   **Version**: 1.0.0
+
+## Related Components
+
+<FeatureList>
+-   **Sheet**: For side-anchored modals.
+-   **AlertDialog**: For critical interruptions.
+</FeatureList>

@@ -1,0 +1,63 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../form.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Form
+
+<SectionHeader
+  title="Component Overview"
+  description="Building forms with React Hook Form and Zod."
+/>
+
+A wrapper around `react-hook-form` to provide a type-safe, accessible form building experience with consistent styling.
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+
+1.  **Form (Root)**: Context provider.
+2.  **FormField**: Controller for a single field.
+3.  **FormItem**: Wrapper for parts.
+4.  **FormLabel**: Label.
+5.  **FormControl**: Slot for the input.
+6.  **FormDescription**: Helper text.
+7.  **FormMessage**: Error text.
+
+## Behavior
+
+### Interaction patterns
+-   **Validation**: Validates on submit or blur (configurable).
+-   **Submission**: Handles data collection.
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Form component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Complex Forms**: Use for any form with validation requirements.
+    - **Schemas**: Define schemas with Zod for type safety.
+  </Dos>
+</Guidelines>
+
+## Accessibility
+
+### Screen reader support
+-   **ARIA**: Automatically links label to input (`for/id`) and description/error to input (`aria-describedby`).
+-   **Invalid**: Sets `aria-invalid` on error.
+
+## Implementation Notes
+
+### Technical considerations
+-   Built using `react-hook-form` and `zod`.
+-   Uses `Slot` to pass props to child inputs.
+
+### Code reference
+-   **Component**: `src/components/ui/form.tsx`
+-   **Storybook**: `src/stories/form.stories.tsx`
+-   **Version**: 1.0.0

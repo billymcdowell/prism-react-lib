@@ -1,0 +1,60 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../drawer.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Drawer
+
+<SectionHeader
+  title="Component Overview"
+  description="A drawer component for React."
+/>
+
+Usually used on mobile devices as a bottom sheet that can be dragged to close.
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+![Anatomy Diagram Placeholder: Annotated diagram showing: 1. Overlay, 2. Content, 3. Handle]
+
+1.  **Drawer (Root)**: Wrapper.
+2.  **DrawerContent**: The sheet element.
+3.  **DrawerOverlay**: Background.
+4.  **Handle**: Visual indicator for dragging.
+
+## Behavior
+
+### Interaction patterns
+-   **Drag**: Can be dragged down to close.
+-   **Snap Points**: Can snap to specific heights.
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Drawer component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Mobile**: Use as a replacement for Dialogs on mobile devices.
+    - **Quick Actions**: Use for menus or quick forms.
+  </Dos>
+</Guidelines>
+
+## Implementation Notes
+
+### Technical considerations
+-   Built using `vaul` (Radix compatible).
+
+### Code reference
+-   **Component**: `src/components/ui/drawer.tsx`
+-   **Storybook**: `src/stories/drawer.stories.tsx`
+-   **Version**: 1.0.0
+
+## Related Components
+
+<FeatureList>
+-   **Sheet**: For desktop side-drawers.
+</FeatureList>

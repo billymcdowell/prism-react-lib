@@ -1,0 +1,59 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../slider.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Slider
+
+<SectionHeader
+  title="Component Overview"
+  description="An input where the user selects a value from within a given range."
+/>
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+![Anatomy Diagram Placeholder: Annotated diagram showing: 1. Track, 2. Range, 3. Thumb]
+
+1.  **Slider (Root)**: The wrapper.
+2.  **Track**: The full bar.
+3.  **Range**: The filled part (active value).
+4.  **Thumb**: The draggable handle.
+
+## Behavior
+
+### Interaction patterns
+-   **Drag**: Mouse drag to change value.
+-   **Click**: Jump to value on track.
+-   **Keyboard**: Arrow keys adjust value by step.
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Slider component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Range**: Use for selecting a value within a fixed range (volume, brightness).
+    - **Approximation**: Use when exact values are less important than relative values.
+  </Dos>
+</Guidelines>
+
+## Accessibility
+
+### Screen reader support
+-   **Role**: `slider`.
+-   **Value**: `aria-valuenow`, `aria-valuemin`, `aria-valuemax`.
+
+## Implementation Notes
+
+### Technical considerations
+-   Built using `@radix-ui/react-slider`.
+
+### Code reference
+-   **Component**: `src/components/ui/slider.tsx`
+-   **Storybook**: `src/stories/slider.stories.tsx`
+-   **Version**: 1.0.0

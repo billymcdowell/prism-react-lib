@@ -1,0 +1,65 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../navigation-menu.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Navigation Menu
+
+<SectionHeader
+  title="Component Overview"
+  description="A collection of links for navigating websites."
+/>
+
+A responsive navigation menu with support for dropdowns and mega-menus.
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+![Anatomy Diagram Placeholder: Annotated diagram showing: 1. Root, 2. List, 3. Item, 4. Trigger, 5. Content, 6. Link, 7. Viewport]
+
+1.  **NavigationMenu (Root)**: Wrapper.
+2.  **NavigationMenuList**: The list of items.
+3.  **NavigationMenuItem**: Single list item.
+4.  **NavigationMenuTrigger**: Button opening a dropdown.
+5.  **NavigationMenuContent**: The mega-menu content.
+6.  **NavigationMenuLink**: A standard link (styled).
+7.  **NavigationMenuViewport**: The container that animates width/height for dropdowns.
+
+## Behavior
+
+### Interaction patterns
+-   **Hover**: Opens on hover (desktop).
+-   **Click**: Opens on click (touch).
+-   **Delay**: Small delay to prevent accidental triggers.
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Navigation Menu component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Top Navigation**: Use for the main site header.
+    - **Mega Menus**: Use for rich dropdown content.
+  </Dos>
+</Guidelines>
+
+## Accessibility
+
+### Screen reader support
+-   **Role**: `navigation`.
+-   **Keyboard**: Arrow keys navigate.
+
+## Implementation Notes
+
+### Technical considerations
+-   Built using `@radix-ui/react-navigation-menu`.
+-   Requires a `Viewport` component for the sliding animation effect.
+
+### Code reference
+-   **Component**: `src/components/ui/navigation-menu.tsx`
+-   **Storybook**: `src/stories/navigation-menu.stories.tsx`
+-   **Version**: 1.0.0

@@ -1,0 +1,54 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../input-otp.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Input OTP
+
+<SectionHeader
+  title="Component Overview"
+  description="Accessible one-time password input component."
+/>
+
+A specialized input for entering OTP codes, often sent via SMS or Email.
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+![Anatomy Diagram Placeholder: Annotated diagram showing: 1. Group, 2. Slot, 3. Separator]
+
+1.  **InputOTP**: Root provider.
+2.  **InputOTPGroup**: Visual grouping of slots.
+3.  **InputOTPSlot**: Individual character cell.
+4.  **InputOTPSeparator**: Dash or divider.
+
+## Behavior
+
+### Interaction patterns
+-   **Paste**: Supports pasting the full code.
+-   **Navigation**: Arrow keys move between slots.
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Input OTP component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **2FA**: Use for two-factor authentication.
+    - **Verification**: Use for email/phone verification.
+  </Dos>
+</Guidelines>
+
+## Implementation Notes
+
+### Technical considerations
+-   Built using `input-otp` (by guilherme-rodz).
+
+### Code reference
+-   **Component**: `src/components/ui/input-otp.tsx`
+-   **Storybook**: `src/stories/input-otp.stories.tsx`
+-   **Version**: 1.0.0

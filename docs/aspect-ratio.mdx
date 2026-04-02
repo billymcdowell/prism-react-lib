@@ -1,0 +1,83 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../aspect-ratio.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Aspect Ratio
+
+<SectionHeader
+  title="Component Overview"
+  description="Displays content within a desired ratio."
+/>
+
+The Aspect Ratio component is used to embed images, videos, or other content while maintaining a specific width-to-height ratio. This prevents layout shifts (CLS) during page loads.
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+![Anatomy Diagram Placeholder: Annotated diagram showing: 1. Wrapper (Ratio Container), 2. Content (Image/Video)]
+
+1.  **AspectRatio (Root)**: The wrapper element that enforces the aspect ratio.
+2.  **Content**: The child element (usually an `img`, `video`, or `iframe`) that fills the container.
+
+## Variants
+The Aspect Ratio supports customization via the `ratio` prop:
+
+-   **Ratio**: Accepts a number representing the width/height ratio (e.g., `16 / 9`, `4 / 3`, `1 / 1`).
+    -   Default: `16 / 9`
+
+## Behavior
+
+### Responsive behavior
+-   The component maintains the specified aspect ratio regardless of the container's width.
+-   The content within typically uses `object-cover` to fill the space without distortion, cropping if necessary.
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Aspect Ratio component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Media**: Use for images, videos, and maps to reserve space before loading.
+    - **Cards**: Use in card layouts to ensure uniform image sizes.
+    - **Grids**: Use to maintain consistency in grid layouts.
+  </Dos>
+  <Donts>
+    - Use for content with unpredictable text amounts, as fixed ratios might cut off text.
+  </Donts>
+</Guidelines>
+
+## Accessibility
+
+### Screen reader support
+-   **Role**: Generic `div`.
+-   **Images**: Ensure wrapped images have appropriate `alt` text.
+
+## Design Specifications
+
+### Sizing
+-   **Width**: 100% of parent container.
+-   **Height**: Calculated based on the `ratio`.
+
+## Implementation Notes
+
+### Technical considerations
+-   Built using `@radix-ui/react-aspect-ratio`.
+-   Uses the "padding-bottom hack" or modern CSS `aspect-ratio` property under the hood (Radix implementation handles this).
+
+### Code reference
+-   **Component**: `src/components/ui/aspect-ratio.tsx`
+-   **Storybook**: `src/stories/aspect-ratio.stories.tsx`
+-   **Version**: 1.0.0
+
+## Related Components
+
+<FeatureList>
+-   **Card**: Often uses AspectRatio for header images.
+-   **Avatar**: Uses aspect ratio logic for ensuring circular or square shapes.
+</FeatureList>
+

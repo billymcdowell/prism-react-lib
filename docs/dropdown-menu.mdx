@@ -1,0 +1,67 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../dropdown-menu.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Dropdown Menu
+
+<SectionHeader
+  title="Component Overview"
+  description="Displays a menu to the user — such as a set of actions or functions — triggered by a button."
+/>
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+![Anatomy Diagram Placeholder: Annotated diagram showing: 1. Trigger, 2. Menu Content, 3. Items, 4. Separators]
+
+1.  **DropdownMenu (Root)**: Wrapper.
+2.  **DropdownMenuTrigger**: Button that opens the menu.
+3.  **DropdownMenuContent**: The popup container.
+4.  **DropdownMenuItem**: Action items.
+5.  **DropdownMenuCheckboxItem**: Toggleable items.
+6.  **DropdownMenuRadioGroup**: Single select items.
+
+## Behavior
+
+### Interaction patterns
+-   **Click**: Opens on click (unlike Tooltip which is hover).
+-   **Selection**: Clicking an item executes action and closes menu.
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Dropdown Menu component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Actions**: Use for a list of actions related to a specific object (e.g., "More" menu).
+    - **Navigation**: Use for simple navigation lists (User menu).
+  </Dos>
+</Guidelines>
+
+## Accessibility
+
+### Screen reader support
+-   **Role**: `menu`.
+-   **Items**: `menuitem`, `menuitemcheckbox`, `menuitemradio`.
+
+## Implementation Notes
+
+### Technical considerations
+-   Built using `@radix-ui/react-dropdown-menu`.
+
+### Code reference
+-   **Component**: `src/components/ui/dropdown-menu.tsx`
+-   **Storybook**: `src/stories/dropdown-menu.stories.tsx`
+-   **Version**: 1.0.0
+
+## Related Components
+
+<FeatureList>
+-   **Select**: For picking a value from a list (form input).
+-   **ContextMenu**: Triggered by right-click.
+</FeatureList>

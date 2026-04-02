@@ -1,0 +1,124 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../button.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Button
+
+<SectionHeader
+  title="Component Overview"
+  description="Displays a button or a component that looks like a button."
+/>
+
+Buttons allow users to take actions, and make choices, with a single tap. They are one of the most fundamental UI elements.
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+![Anatomy Diagram Placeholder: Annotated diagram showing: 1. Container, 2. Label, 3. Icon (Optional)]
+
+1.  **Button (Root)**: The click target with background, border, and shadow.
+2.  **Label**: The text describing the action.
+3.  **Icon (Optional)**: A leading or trailing icon to clarify the action.
+
+## Variants
+The Button component provides several variants for different contexts:
+
+-   **Default**: Primary action. Solid background color (`bg-primary`).
+-   **Destructive**: Dangerous action (e.g., Delete). Red background (`bg-destructive`).
+-   **Outline**: Secondary action with a border. Transparent background (`bg-background`, `border`).
+-   **Secondary**: Muted background (`bg-secondary`). Used for secondary actions.
+-   **Ghost**: Transparent background, used in toolbars or for subtle actions (`hover:bg-accent`).
+-   **Link**: Looks like a link but behaves like a button (`text-primary`, `underline`).
+
+## Sizes
+-   **Default**: Standard size (`h-10`, `px-4`, `py-2`).
+-   **sm**: Small (`h-9`, `rounded-md`, `px-3`).
+-   **lg**: Large (`h-11`, `rounded-md`, `px-8`).
+-   **icon**: Square aspect ratio for icon-only buttons (`h-10`, `w-10`).
+
+## States
+-   **Default**: Normal state.
+-   **Hover**: Visual feedback when the cursor is over the button (opacity change or background darken).
+-   **Focus**: Focus ring appears for keyboard navigation (`ring-2`, `ring-offset-2`).
+-   **Active/Pressed**: Visual feedback when clicked.
+-   **Disabled**: Reduced opacity (`opacity-50`), pointer events disabled.
+
+## Behavior
+
+### Interaction patterns
+-   **Click**: Triggers the `onClick` handler.
+-   **Keyboard**: `Enter` or `Space` triggers the action when focused.
+
+### Responsive behavior
+-   Buttons generally maintain their size but can be set to `w-full` to span the container width on mobile.
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Button component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Action Verbs**: Use clear, action-oriented text (e.g., "Save", "Delete").
+    - **Hierarchy**: Use variants to establish visual hierarchy (primary vs. secondary actions).
+    - **One Primary**: Generally, use only one primary button per view or section.
+  </Dos>
+  <Donts>
+    - Use too many primary buttons on one page (dilutes importance).
+    - Use buttons for navigation (use Link or standard anchor tags, though Button can style a Link).
+    - Use generic labels like "Click Here".
+  </Donts>
+</Guidelines>
+
+## Accessibility
+
+### Keyboard navigation
+-   **Tab**: Moves focus to the button.
+-   **Enter/Space**: Activates the button.
+
+### Screen reader support
+-   **Role**: `button`.
+-   **Label**: If using an icon-only button, ensure an `aria-label` or `sr-only` text is provided.
+
+## Design Specifications
+
+### Typography
+-   **Font**: `text-sm`.
+-   **Weight**: `font-medium`.
+-   **Color**: Varies by variant (`text-primary-foreground`, `text-secondary-foreground`, etc.).
+
+### Spacing
+-   **Padding**: `px-4`, `py-2` (Default).
+-   **Radius**: `rounded-md` (Standard radius token).
+
+<SectionHeader
+  title="Content Guidelines"
+  description="Writing effective content for buttons."
+/>
+
+### Writing style
+-   **Start with a verb**: "Create Account", "View Details".
+-   **Be specific**: "Delete Project" is better than "Delete".
+
+## Implementation Notes
+
+### Technical considerations
+-   Built using standard `<button>` element or `Slot` for polymorphism (rendering as `a` tag).
+-   Uses `class-variance-authority` (cva).
+
+### Code reference
+-   **Component**: `src/components/ui/button.tsx`
+-   **Storybook**: `src/stories/button.stories.tsx`
+-   **Version**: 1.0.0
+
+## Related Components
+
+<FeatureList>
+-   **ButtonGroup**: For grouping related buttons.
+-   **Badge**: For status indicators (not interactive).
+-   **DropdownMenu**: For a button that triggers a menu.
+</FeatureList>

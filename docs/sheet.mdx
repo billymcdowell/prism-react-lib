@@ -1,0 +1,65 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as Story from '../sheet.stories';
+import { Guidelines, Dos, Donts, Callout, SectionHeader, FeatureList } from './doc-components';
+
+<Meta of={Story} />
+
+# Sheet
+
+<SectionHeader
+  title="Component Overview"
+  description="Extends the Dialog component to display content that complements the main screen."
+/>
+
+Often used for sidebars, drawers, or complex editing panels.
+
+## Demo
+
+<Canvas />
+
+## Anatomy
+![Anatomy Diagram Placeholder: Annotated diagram showing: 1. Overlay, 2. Content, 3. Close, 4. Header, 5. Footer]
+
+1.  **Sheet (Root)**: Wrapper.
+2.  **SheetTrigger**: Button.
+3.  **SheetOverlay**: Background dimmer.
+4.  **SheetContent**: The panel (slide-in).
+5.  **SheetHeader/Footer**: Layout helpers.
+
+## Variants
+-   **Side**: `top`, `right` (default), `bottom`, `left`.
+
+## Behavior
+
+### Interaction patterns
+-   **Slide**: Animates in from the edge.
+-   **Dismiss**: Click overlay or Esc.
+
+<SectionHeader
+  title="Usage Guidelines"
+  description="Best practices for when and how to use the Sheet component."
+/>
+
+<Guidelines>
+  <Dos>
+    - **Context**: Use to maintain context of the main page while editing details.
+    - **Mobile Menu**: Standard pattern for mobile navigation.
+  </Dos>
+</Guidelines>
+
+## Implementation Notes
+
+### Technical considerations
+-   Built using `@radix-ui/react-dialog` (customized animations).
+
+### Code reference
+-   **Component**: `src/components/ui/sheet.tsx`
+-   **Storybook**: `src/stories/sheet.stories.tsx`
+-   **Version**: 1.0.0
+
+## Related Components
+
+<FeatureList>
+-   **Dialog**: Centered modal.
+-   **Drawer**: Mobile bottom sheet (often draggable).
+</FeatureList>
