@@ -10,6 +10,9 @@ const config: StorybookConfig = {
     "@storybook/addon-docs",
     "@storybook/addon-themes"
   ],
-  "framework": "@storybook/react-vite"
+  "framework": "@storybook/react-vite",
+  // Map source docs to /docs/* on the dev server and in storybook-static (LLM-friendly URLs).
+  // A string entry like "../src/stories/docs" would copy files to the *root* (/button.mdx), not /docs/.
+  "staticDirs": [{ from: "../src/stories/docs", to: "/docs" }],
 };
 export default config;
